@@ -64,13 +64,14 @@ namespace WindowsFormsApp8
             uncheck(); // Gọi phương thức uncheck
         }
 
-        public BanVe(string idphong, string tenphim, string tenMh, string time)
+        public BanVe(string idlc, string tenphong, string tenphim, string tenMh, string time)
         {
             InitializeComponent();
-            lblipphong.Text = idphong;
+            lblidlc.Text = idlc;
             lbltenphim.Text = tenphim;
             lblTenMh.Text = tenMh;
             lbltgchieu.Text = time;
+            lbltenphong.Text = tenphong;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -136,27 +137,33 @@ namespace WindowsFormsApp8
             {
                 List<int> gheDaChonTrongHang = kvp.Value;
 
-                // Nếu danh sách ghế trong hàng rỗng hoặc chỉ có một ghế, không cần kiểm tra
+                // Bỏ qua hàng nếu có 1 ghế hoặc không đủ kiểm tra
                 if (gheDaChonTrongHang.Count <= 1)
                     continue;
 
-                // Sắp xếp danh sách theo tọa độ X
+                // Sắp xếp danh sách ghế trong hàng
                 gheDaChonTrongHang.Sort();
 
-                // Duyệt qua danh sách ghế để kiểm tra khoảng trống
+                // Kiểm tra các ghế đã chọn
                 for (int i = 0; i < gheDaChonTrongHang.Count - 1; i++)
                 {
-                    // Kiểm tra khoảng cách giữa hai ghế liên tiếp
-                    if (gheDaChonTrongHang[i + 1] - gheDaChonTrongHang[i] > 30)
+                    int ghe1 = gheDaChonTrongHang[i];
+                    int ghe2 = gheDaChonTrongHang[i + 1];
+
+                    // Nếu khoảng cách giữa 2 ghế là 2 ghế (tức có 1 ghế trống chính giữa)
+                    if (ghe2 - ghe1 == 60) // 60px = 30px * 2 (mỗi ghế cách nhau 30px)
                     {
-                        // Phát hiện ghế bị bỏ giữa trong một nhóm liên tiếp
-                        return true;
+                        int gheTrungTam = ghe1 + 30; // Ghế nằm giữa hai ghế đã chọn
+
+                        if (IsSeatEmpty(gheTrungTam, kvp.Key))
+                        {
+                            return true; // Phát hiện có 1 ghế trống chính giữa
+                        }
                     }
                 }
             }
 
-            // Không có ghế bị bỏ giữa trong bất kỳ hàng nào
-            return false;
+            return false; // Không phát hiện ghế bị bỏ chính gi
         }
         private bool KiemTraGheCot1DaChon(int yPosition)
         {
@@ -258,6 +265,13 @@ namespace WindowsFormsApp8
             if (!radNguoiLon.Checked && !radSV.Checked && !radTreEm.Checked)
             {
                 MessageBox.Show("Vui lòng chọn loại vé trước khi chọn ghế!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            // Kiểm tra số lượng ghế đã chọn không vượt quá giới hạn
+            int totalSeatsSelected = gheDaChon.Values.Sum(list => list.Count);
+            if (totalSeatsSelected >= 7 && b.BackColor == Color.White) // Chỉ chặn nếu thêm ghế mới
+            {
+                MessageBox.Show("Không thể chọn hơn 7 ghế trong một lần!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -464,6 +478,28 @@ namespace WindowsFormsApp8
                     }
                 }
 
+                // Tạo danh sách ghế đã chọn để truyền qua form "Vé"
+                List<string> danhSachGhe = new List<string>();
+                foreach (var hang in gheDaChon)
+                {
+                    char tenHang = (char)((hang.Key - 16) / 30 + 65); // Chuyển tọa độ Y thành A, B, C...
+                    foreach (var ghe in hang.Value)
+                    {
+                        int soGhe = (ghe - 11) / 30 + 1; // Chuyển tọa độ X thành số ghế
+                        danhSachGhe.Add($"{tenHang}{soGhe}");
+                    }
+                }
+
+                string danhSachGheString = string.Join(", ", danhSachGhe);
+                // Tạo mới Form "Vé" mỗi lần
+                Ve ve = new Ve(lbltenphong.Text, lbltenphim.Text, lbltgchieu.Text, danhSachGheString);
+
+
+                // Reset nội dung form trước khi hiển thị
+                ve.ResetLabelsInPanel();
+                ve.ShowDialog();
+
+                gheDaChon.Clear();
                 // Reset lại số lượng vé đã chọn
                 soLuongNguoiLon = 0;
                 soLuongSV = 0;
@@ -482,9 +518,14 @@ namespace WindowsFormsApp8
                 radSV.Checked = false;
                 radTreEm.Checked = false;
                 chkTV.Checked = false;
+           
+
+
             }
 
+
         }
+        private Ve formVe;
 
         public void SetLabelData(string data)
         {
