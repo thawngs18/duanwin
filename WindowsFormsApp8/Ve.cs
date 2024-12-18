@@ -68,14 +68,31 @@ namespace WindowsFormsApp8
         {
             // Nội dung vé xem phim cần in
             string noiDungVe = string.Format(
-                "========= Vé Xem Phim ========= \n" +
-                "Phim: {0}\n" +
-                "Thời Gian Chiếu: {1}\n" +
-                "Phòng Chiếu: {2}\n" +
-                "Ghế: {3}\n" +
-                "==============================\n",
-                tenPhim, date, tenphong, tenghe
-            );
+    "============= Ve Xem Phim =============\n" +
+    "\n" +
+    " {0,-22} : {1,-34}\n" +
+    "\n" +
+    " {2,-13} : {3,-34}\n" +
+    "\n" +
+    " {4,-16} : {5,-34}\n" +
+    "\n" +
+    "{6,-23} : {7,-34}\n" +
+    "\n" +
+    "=====================================" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "=====================================",
+    "Phim", tenPhim, "Thoi Gian Chieu", date, "Phong Chieu", tenphong, "Ghe ", tenghe);
+
 
             // Tạo PrintDocument và kết nối sự kiện PrintPage
             PrintDocument printDoc = new PrintDocument();
@@ -89,7 +106,7 @@ namespace WindowsFormsApp8
 
                 // Nếu cần thêm hình ảnh (ví dụ: mã QR), có thể vẽ tại đây
                 Bitmap qrImage = GenerateQRCode(noiDungVe);
-                ev.Graphics.DrawImage(qrImage, leftMargin, topMargin + 100, 150, 150);
+                ev.Graphics.DrawImage(qrImage, leftMargin + 70, topMargin + 230, 150, 150);
             };
 
             // Hiển thị hộp thoại chọn máy in
