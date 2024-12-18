@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Printing;
+using QRCoder;
 
 namespace WindowsFormsApp8
 {
@@ -60,6 +62,56 @@ namespace WindowsFormsApp8
             lblTenPhim.Text = tenPhim;
             lblDate.Text = date;
             lblTenghe.Text = tenghe;
+        }
+
+        private void toolbtnPrint_Click(object sender, EventArgs e)
+        {
+            // Nội dung vé xem phim cần in
+            string noiDungVe = string.Format(
+                "========= Vé Xem Phim ========= \n" +
+                "Phim: {0}\n" +
+                "Thời Gian Chiếu: {1}\n" +
+                "Phòng Chiếu: {2}\n" +
+                "Ghế: {3}\n" +
+                "==============================\n",
+                tenPhim, date, tenphong, tenghe
+            );
+
+            // Tạo PrintDocument và kết nối sự kiện PrintPage
+            PrintDocument printDoc = new PrintDocument();
+            printDoc.PrintPage += (s, ev) =>
+            {
+                // Vẽ nội dung văn bản lên trang in
+                Font font = new Font("Arial", 12);
+                float leftMargin = ev.MarginBounds.Left;
+                float topMargin = ev.MarginBounds.Top;
+                ev.Graphics.DrawString(noiDungVe, font, Brushes.Black, leftMargin, topMargin);
+
+                // Nếu cần thêm hình ảnh (ví dụ: mã QR), có thể vẽ tại đây
+                Bitmap qrImage = GenerateQRCode(noiDungVe);
+                ev.Graphics.DrawImage(qrImage, leftMargin, topMargin + 100, 150, 150);
+            };
+
+            // Hiển thị hộp thoại chọn máy in
+            PrintDialog printDialog = new PrintDialog
+            {
+                Document = printDoc
+            };
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Thực hiện lệnh in
+                printDoc.Print();
+            }
+        }
+
+        // Phương thức tạo mã QR từ nội dung
+        private Bitmap GenerateQRCode(string content)
+        {
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(content, QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            return qrCode.GetGraphic(2); // Tạo mã QR với kích thước 2x
         }
     }
 }

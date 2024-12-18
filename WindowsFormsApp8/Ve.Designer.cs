@@ -36,6 +36,7 @@
             this.lblPhong = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolbtnPrint = new System.Windows.Forms.ToolStripButton();
             this.pnlVe.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -90,7 +91,8 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.toolbtnPrint});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(452, 25);
@@ -106,6 +108,16 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
+            // 
+            // toolbtnPrint
+            // 
+            this.toolbtnPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolbtnPrint.Image = ((System.Drawing.Image)(resources.GetObject("toolbtnPrint.Image")));
+            this.toolbtnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolbtnPrint.Name = "toolbtnPrint";
+            this.toolbtnPrint.Size = new System.Drawing.Size(23, 22);
+            this.toolbtnPrint.Text = "toolStripButton2";
+            this.toolbtnPrint.Click += new System.EventHandler(this.toolbtnPrint_Click);
             // 
             // Ve
             // 
@@ -136,5 +148,6 @@
         private System.Windows.Forms.Label lblPhong;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolbtnPrint;
     }
 }
