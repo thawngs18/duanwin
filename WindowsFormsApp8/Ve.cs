@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Printing;
 using QRCoder;
+using System.Drawing.Imaging;
 
 namespace WindowsFormsApp8
 {
@@ -49,15 +50,18 @@ namespace WindowsFormsApp8
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
             pnlVe.Visible = false;
+            pnlQR.Visible = true;
             QR qr = new QR(lblPhong.Text, lblTenPhim.Text, lblDate.Text, lblTenghe.Text);
             qr.MdiParent = this;
+            qr.Controls.Add(pnlQR);
             qr.Show();
+
         }
 
         private void Ve_Load_1(object sender, EventArgs e)
         {
             ResetLabelsInPanel();
-
+            pnlQR.Visible=false;
             lblPhong.Text = tenphong;
             lblTenPhim.Text = tenPhim;
             lblDate.Text = date;
@@ -106,9 +110,46 @@ namespace WindowsFormsApp8
 
                 // Nếu cần thêm hình ảnh (ví dụ: mã QR), có thể vẽ tại đây
                 Bitmap qrImage = GenerateQRCode(noiDungVe);
-                ev.Graphics.DrawImage(qrImage, leftMargin + 70, topMargin + 230, 150, 150);
+                ev.Graphics.DrawImage(qrImage, leftMargin + 112, topMargin + 230, 150, 150);
+                int logoWidth = 50;
+                int logoHeight = 50;
+
+                try
+                {
+                    // Lấy logo từ Resources
+                    Image logo = Properties.Resources.logo;
+
+                    // Làm mờ logo
+                    ImageAttributes imageAttr = new ImageAttributes();
+                    ColorMatrix colorMatrix = new ColorMatrix
+                    {
+                        Matrix33 = 1.3f // Độ trong suốt
+                    };
+                    imageAttr.SetColorMatrix(colorMatrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
+
+                    // Vẽ logo lặp lại trên toàn trang in
+                    for (float y = 0; y < ev.PageBounds.Height; y += logoHeight + 10)
+                    {
+                        for (float x = 0; x < ev.PageBounds.Width; x += logoWidth + 10)
+                        {
+                            ev.Graphics.DrawImage(
+                                logo,
+                                new Rectangle((int)x, (int)y, logoWidth, logoHeight),
+                                0, 0, logo.Width, logo.Height,
+                                GraphicsUnit.Pixel,
+                                imageAttr
+                            );
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Không thể tải logo: " + ex.Message);
+                }
             };
 
+
+          
             // Hiển thị hộp thoại chọn máy in
             PrintDialog printDialog = new PrintDialog
             {

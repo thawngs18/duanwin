@@ -62,7 +62,7 @@ namespace WindowsFormsApp8
                 QRCodeData data = qr.CreateQrCode(qrConten, QRCodeGenerator.ECCLevel.Q);
                 using (QRCode code = new QRCode(data))
                 {
-                    Bitmap qrimg = code.GetGraphic(2, Color.Red, Color.White, true);
+                    Bitmap qrimg = code.GetGraphic(4, Color.Red, Color.White, true);
                     pictureBox1.Image = qrimg;
                 }
             }
