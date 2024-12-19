@@ -2315,6 +2315,7 @@ namespace WindowsFormsApp8
                 if (control is System.Windows.Forms.TextBox textBox)
                 {
                     textBox.Text = string.Empty;
+
                 }
             }
         }
