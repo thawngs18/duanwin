@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp8.database;
 
 namespace WindowsFormsApp8
 {
@@ -18,35 +19,34 @@ namespace WindowsFormsApp8
         {
             InitializeComponent();
         }
-        string connectionString = "Server=.\\SQLEXPRESS;Database=rapphim;Trusted_Connection=True;";
+        
         private void Seller_Load(object sender, EventArgs e)
         {
-            // Câu truy vấn SQL để lấy dữ liệu từ cột
-            string query = "SELECT TenPhim FROM Phim";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (var context = new Model1())
             {
-                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
+                var phimList = context.Phims
+                    .Select(p => new
+                    {
+                        p.id,
+                        p.TenPhim
+                    })
+                    .ToList();
 
-                // Đổ dữ liệu vào ComboBox
-                comboBox1.DisplayMember = "TenPhim"; // Cột hiển thị
+                comboBox1.DisplayMember = "TenPhim";
                 comboBox1.ValueMember = "id";
-                comboBox1.DataSource = dataTable;
-            }
+                comboBox1.DataSource = phimList;
 
-            query = "SElECT TenMH FROM LoaiManHinh";
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
+                var loaiManHinhList = context.LoaiManHinhs
+                    .Select(lmh => new
+                    {
+                        lmh.id,
+                        lmh.TenMH
+                    })
+                    .ToList();
 
-                // Đổ dữ liệu vào ComboBox
-                comboBox2.DisplayMember = "TenMH"; // Cột hiển thị
+                comboBox2.DisplayMember = "TenMH";
                 comboBox2.ValueMember = "id";
-                comboBox2.DataSource = dataTable;
+                comboBox2.DataSource = loaiManHinhList;
             }
 
         }
@@ -55,32 +55,34 @@ namespace WindowsFormsApp8
         {
             string tenP = comboBox1.Text;
             string tenMH = comboBox2.Text;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+
+            try
             {
-                try
+                using (var context = new Model1())
                 {
-                    connection.Open();
+                    var result = (from l in context.LichChieux
+                                  join d in context.DinhDangPhims on l.idDinhDang equals d.id
+                                  join p in context.Phims on d.idPhim equals p.id
+                                  join h in context.LoaiManHinhs on d.idLoaiManHinh equals h.id
+                                  join c in context.PhongChieux on l.idPhong equals c.id
+                                  where p.TenPhim == tenP && h.TenMH == tenMH
+                                  select new
+                                  {
+                                      l.id,
+                                      p.TenPhim,
+                                      h.TenMH,
+                                      l.ThoiGianChieu,
+                                      p.ThoiLuong,
+                                      c.SoChoNgoi,
+                                      c.TenPhong
+                                  }).ToList();
 
-                    // Câu truy vấn
-                    String query = "SELECT l.id,p.TenPhim,h.TenMH,l.ThoiGianChieu,p.ThoiLuong,c.SoChoNgoi,TenPhong FROM LichChieu l,LoaiManHinh h,Phim p,DinhDangPhim d,PhongChieu c where l.idDinhDang = d.id and d.idPhim = p.id and d.idLoaiManHinh = h.id and l.idPhong = c.id and p.TenPhim = @tenphim and h.TenMH = @tenMH";
-
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@tenphim", tenP);
-                        cmd.Parameters.AddWithValue("@tenMH", tenMH);
-
-                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-
-                        // Gán dữ liệu vào DataGridView
-                        dtgLichChieuP.DataSource = dataTable;
-                    }
+                    dtgLichChieuP.DataSource = result;
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi: " + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 
