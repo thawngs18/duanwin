@@ -1554,7 +1554,7 @@
             this.pnlKH.Controls.Add(this.label11);
             this.pnlKH.Controls.Add(this.label4);
             this.pnlKH.Controls.Add(this.LblMaKh);
-            this.pnlKH.Location = new System.Drawing.Point(129, 25);
+            this.pnlKH.Location = new System.Drawing.Point(127, 29);
             this.pnlKH.Name = "pnlKH";
             this.pnlKH.Size = new System.Drawing.Size(902, 505);
             this.pnlKH.TabIndex = 21;
@@ -1643,6 +1643,7 @@
             this.txtsearchkh.Name = "txtsearchkh";
             this.txtsearchkh.Size = new System.Drawing.Size(100, 20);
             this.txtsearchkh.TabIndex = 1;
+            this.txtsearchkh.TextChanged += new System.EventHandler(this.txtsearchkh_TextChanged);
             // 
             // txtCMNDKH
             // 
@@ -1777,7 +1778,7 @@
             this.pnlNV.Controls.Add(this.label15);
             this.pnlNV.Controls.Add(this.label14);
             this.pnlNV.Controls.Add(this.label1);
-            this.pnlNV.Location = new System.Drawing.Point(1093, 42);
+            this.pnlNV.Location = new System.Drawing.Point(133, 31);
             this.pnlNV.Name = "pnlNV";
             this.pnlNV.Size = new System.Drawing.Size(903, 495);
             this.pnlNV.TabIndex = 22;
@@ -1810,6 +1811,7 @@
             this.txtTKNV.Name = "txtTKNV";
             this.txtTKNV.Size = new System.Drawing.Size(121, 20);
             this.txtTKNV.TabIndex = 16;
+            this.txtTKNV.TextChanged += new System.EventHandler(this.txtTKNV_TextChanged);
             // 
             // btnXoaNV
             // 

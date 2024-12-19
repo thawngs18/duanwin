@@ -465,7 +465,20 @@ namespace WindowsFormsApp8
             }
         }
 
+        private void txtTKNV_TextChanged(object sender, EventArgs e)
+        {
+            string searchValue = txtTKNV.Text.Trim();
 
+            using (var db = new Model1())
+            {
+                var searchResults = db.NhanViens
+                                      .Where(Mk => Mk.HoTen.Contains(searchValue))
+                                      .ToList();
+
+
+                dgvNV.DataSource = searchResults;
+            }
+        }
         private void btnThemNV_Click(object sender, EventArgs e)
         {
             try
@@ -728,7 +741,20 @@ namespace WindowsFormsApp8
                 MessageBox.Show("Vui lòng chọn một khách hàng để sửa.");
             }
         }
+        private void txtsearchkh_TextChanged(object sender, EventArgs e)
+        {
+            string searchValue = txtsearchkh.Text.Trim();
 
+            using (var db = new Model1())
+            {
+                var searchResults = db.KhachHangs
+                                      .Where(Mk => Mk.HoTen.Contains(searchValue))
+                                      .ToList();
+
+
+                dgvKH.DataSource = searchResults;
+            }
+        }
 
         private void dgvKH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -2051,7 +2077,6 @@ namespace WindowsFormsApp8
             MessageBox.Show("Lỗi: " + ex.Message);
         }
     }
-
 
 
     }
