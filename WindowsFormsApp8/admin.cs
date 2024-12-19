@@ -533,6 +533,7 @@ namespace WindowsFormsApp8
                     context.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu
                     MessageBox.Show("Thêm nhân viên thành công!");
                     btnXemNV.PerformClick(); // Tải lại danh sách sau khi thêm
+                    ClearTextBoxes(pnlNV);
                 }
             }
             catch (Exception ex)
@@ -561,6 +562,7 @@ namespace WindowsFormsApp8
                             context.SaveChanges();
                             MessageBox.Show("Xóa nhân viên thành công!");
                             btnXemNV.PerformClick(); // Tải lại danh sách sau khi xóa
+                            ClearTextBoxes(pnlNV);
                         }
                         else
                         {
@@ -602,6 +604,7 @@ namespace WindowsFormsApp8
                             context.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu
                             MessageBox.Show("Cập nhật nhân viên thành công!");
                             btnXemNV.PerformClick(); // Tải lại danh sách sau khi sửa
+                            ClearTextBoxes(pnlNV);
                         }
                         else
                         {
@@ -690,6 +693,7 @@ namespace WindowsFormsApp8
 
                     MessageBox.Show("Thêm khách hàng thành công!");
                     btnXemKh.PerformClick(); // Tải lại danh sách sau khi thêm
+                    ClearTextBoxes(pnlKH);
                 }
             }
             catch (Exception ex)
@@ -715,6 +719,7 @@ namespace WindowsFormsApp8
                             context.SaveChanges();
                             MessageBox.Show("Xóa khách hàng thành công!");
                             btnXemKh.PerformClick(); // Tải lại danh sách sau khi xóa
+                            ClearTextBoxes(pnlKH);
                         }
                         else
                         {
@@ -756,6 +761,7 @@ namespace WindowsFormsApp8
                             context.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu
                             MessageBox.Show("Cập nhật thông tin khách hàng thành công!");
                             btnXemKh.PerformClick(); // Tải lại danh sách sau khi sửa
+                            ClearTextBoxes(pnlKH);
                         }
                         else
                         {
@@ -861,6 +867,7 @@ namespace WindowsFormsApp8
 
                     MessageBox.Show("Thêm loại màn hình thành công!");
                     button6.PerformClick(); // Tải lại danh sách sau khi thêm
+                    ClearTextBoxes(pnlLoaiManHinh);
                 }
             }
             catch (Exception ex)
@@ -899,6 +906,7 @@ namespace WindowsFormsApp8
                             context.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu
                             MessageBox.Show("Cập nhật thông tin thành công!");
                             button6.PerformClick(); // Tải lại danh sách sau khi cập nhật
+                            ClearTextBoxes(pnlLoaiManHinh);
                         }
                         else
                         {
@@ -935,6 +943,7 @@ namespace WindowsFormsApp8
                             context.SaveChanges();
                             MessageBox.Show("Xóa loại màn hình thành công!");
                             button6.PerformClick(); // Tải lại danh sách sau khi xóa
+                            ClearTextBoxes(pnlLoaiManHinh);
                         }
                         else
                         {
@@ -986,6 +995,7 @@ namespace WindowsFormsApp8
                     context.SaveChanges();
                     MessageBox.Show("Thêm phòng chiếu thành công!");
                     btnXemPC.PerformClick();
+                    ClearTextBoxes(pnlPhongChieu);
                 }
             }
             catch (Exception ex)
@@ -1051,6 +1061,7 @@ namespace WindowsFormsApp8
                             context.SaveChanges();
                             MessageBox.Show("Xóa phòng chiếu thành công!");
                             btnXemPC.PerformClick();
+                            ClearTextBoxes(pnlPhongChieu);
                         }
                         else
                         {
@@ -1095,6 +1106,7 @@ namespace WindowsFormsApp8
                             context.SaveChanges();
                             MessageBox.Show("Cập nhật thông tin thành công!");
                             btnXemPC.PerformClick();
+                            ClearTextBoxes(pnlPhongChieu);
                         }
                         else
                         {
@@ -1170,6 +1182,7 @@ namespace WindowsFormsApp8
 
                     MessageBox.Show("Thêm thể loại thành công!");
                     btnXemTL.PerformClick(); // Tải lại danh sách
+                    ClearTextBoxes(pnlTheLoai);
                 }
             }
             catch (Exception ex)
@@ -1197,6 +1210,7 @@ namespace WindowsFormsApp8
 
                             MessageBox.Show("Xóa thể loại thành công!");
                             btnXemTL.PerformClick(); // Tải lại danh sách
+                            ClearTextBoxes(pnlTheLoai);
                         }
                         else
                         {
@@ -1247,6 +1261,7 @@ namespace WindowsFormsApp8
 
                             MessageBox.Show("Cập nhật thông tin thành công!");
                             btnXemTL.PerformClick(); // Tải lại danh sách
+                            ClearTextBoxes(pnlTheLoai);
                         }
                         else
                         {
@@ -1359,6 +1374,7 @@ namespace WindowsFormsApp8
                             context.SaveChanges();
                             MessageBox.Show("Cập nhật phim thành công!");
                             btnXemP.PerformClick();
+                            ClearTextBoxes(pnlPhim);
                         }
                         else
                         {
@@ -1556,6 +1572,7 @@ namespace WindowsFormsApp8
                             context.SaveChanges();
                             MessageBox.Show("Xóa phim thành công!");
                             btnXemP.PerformClick();
+                            ClearTextBoxes(pnlPhim);
                         }
                         else
                         {
@@ -1620,6 +1637,7 @@ namespace WindowsFormsApp8
                     context.SaveChanges();
                     MessageBox.Show("Thêm định dạng phim thành công!");
                     btnXemDD.PerformClick(); // Tải lại danh sách
+                    ClearTextBoxes(pnlDinhDang);
                 }
             }
             catch (Exception ex)
@@ -1734,6 +1752,7 @@ namespace WindowsFormsApp8
                         context.SaveChanges();
                         MessageBox.Show("Cập nhật định dạng phim thành công!");
                         btnXemDD.PerformClick(); // Tải lại danh sách
+                        ClearTextBoxes(pnlDinhDang);
                     }
                     else
                     {
@@ -1764,6 +1783,7 @@ namespace WindowsFormsApp8
                             context.SaveChanges();
                             MessageBox.Show("Xóa định dạng phim thành công!");
                             btnXemDD.PerformClick(); // Tải lại danh sách
+                            ClearTextBoxes(pnlDinhDang);
                         }
                         else
                         {
@@ -1911,6 +1931,7 @@ namespace WindowsFormsApp8
 
                     MessageBox.Show("Thêm lịch chiếu thành công!");
                     btnXemLC.PerformClick();
+                    ClearTextBoxes(pnlLichChieu);
                 }
             }
             catch (Exception ex)
@@ -1936,6 +1957,7 @@ namespace WindowsFormsApp8
 
                             MessageBox.Show("Xóa lịch chiếu thành công!");
                             btnXemLC.PerformClick();
+                            ClearTextBoxes(pnlLichChieu);
                         }
                         else
                         {
