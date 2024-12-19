@@ -12,10 +12,10 @@ namespace WindowsFormsApp8
 {
     public partial class chonCN : Form
     {
-        public chonCN(string cn,string name)
+        public chonCN(string cn,string tendn)
         {
             InitializeComponent();
-            button4.Text = name;
+            button4.Text = tendn;
             label3.Text = cn;
         }
 
@@ -33,11 +33,19 @@ namespace WindowsFormsApp8
 
         private void chonCN_Load(object sender, EventArgs e)
         {
-            if(label3.Text == "BV")
+            if(label3.Text == "banve")
             {
                 button1.Enabled = false;
             }
 
+        }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            DangNhap dangNhap = new DangNhap();
+            dangNhap.ShowDialog();
+           
         }
     }
 }

@@ -35,6 +35,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
+            this.btn_logout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -107,11 +108,22 @@
             this.button4.TabIndex = 6;
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // btn_logout
+            // 
+            this.btn_logout.Location = new System.Drawing.Point(301, 370);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(75, 23);
+            this.btn_logout.TabIndex = 7;
+            this.btn_logout.Text = "Log Out";
+            this.btn_logout.UseVisualStyleBackColor = true;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
+            // 
             // chonCN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(408, 408);
+            this.Controls.Add(this.btn_logout);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
@@ -137,5 +149,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_logout;
     }
 }

@@ -13,6 +13,7 @@ using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.SqlTypes;
 using WindowsFormsApp8.database;
+using System.Windows.Documents;
 
 
 
@@ -29,7 +30,7 @@ namespace WindowsFormsApp8
         private void admin_Load(object sender, EventArgs e)
         {
 
-            Panel[] panels = { flp_admin, ftp_DL, panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai, pnlPhongChieu };
+            Panel[] panels = { flp_admin, ftp_DL, panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai, pnlPhongChieu,pnl_tk };
             foreach (var pan in panels)
             {
                 pan.Visible = false;
@@ -37,7 +38,7 @@ namespace WindowsFormsApp8
 
             flp_admin.Visible = true;
             panel1.Visible = true;
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button16.BackColor = Color.Red;
@@ -50,13 +51,13 @@ namespace WindowsFormsApp8
         private void button3_Click(object sender, EventArgs e)
         {
             this.Text = "Nhan Vien";
-            Panel[] panels = { flp_admin, ftp_DL, panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai, pnlPhongChieu };
+            Panel[] panels = { flp_admin, ftp_DL, panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai, pnlPhongChieu, pnl_tk };
             foreach (var pan in panels)
             {
                 pan.Visible = false;
             }
             pnlNV.Visible = true;
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button13.BackColor = Color.Red;
@@ -66,11 +67,11 @@ namespace WindowsFormsApp8
         private void button4_Click(object sender, EventArgs e)
         {
             this.Text = "Khach Hang";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             pnlKH.Visible = true;
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button15.BackColor = Color.Red;
@@ -80,13 +81,13 @@ namespace WindowsFormsApp8
         private void button1_Click(object sender, EventArgs e)
         {
             this.Text = "Doanh Thu";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             pnlDoanhThu.Visible = true;
 
             loadCBPhim();
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button14.BackColor = Color.Red;
@@ -96,12 +97,12 @@ namespace WindowsFormsApp8
         private void button2_Click(object sender, EventArgs e)
         {
             this.Text = "Du Lieu";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             ftp_DL.Visible = true;
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
 
@@ -112,12 +113,12 @@ namespace WindowsFormsApp8
         private void button18_Click(object sender, EventArgs e)
         {
             this.Text = "Loai Man Hinh";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlLoaiManHinh.Visible = true;
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button24.BackColor = Color.Red;
@@ -128,12 +129,12 @@ namespace WindowsFormsApp8
         private void button19_Click(object sender, EventArgs e)
         {
             this.Text = "Phong Chieu";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlPhongChieu.Visible = true;
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button28.BackColor = Color.Red;
@@ -143,12 +144,12 @@ namespace WindowsFormsApp8
         private void button20_Click(object sender, EventArgs e)
         {
             this.Text = "The Loai";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlTheLoai.Visible = true;
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button29.BackColor = Color.Red;
@@ -160,14 +161,14 @@ namespace WindowsFormsApp8
         private void button21_Click(object sender, EventArgs e)
         {
             this.Text = "Phim";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlPhim.Visible = true;
 
             LoadTheLoaiToCheckedListBox();
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button30.BackColor = Color.Red;
@@ -177,24 +178,55 @@ namespace WindowsFormsApp8
         private void button22_Click(object sender, EventArgs e)
         {
             this.Text = "Dinh Dang";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlDinhDang.Visible = true;
 
             LoadComboBoxData();
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button31.BackColor = Color.Red;
             button17.BackColor = Color.Red;
         }
+        private void btnacc_Click(object sender, EventArgs e)
+        {
+            this.Text = "Tai Khoan";
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
+            foreach (var panel in p)
+            { panel.Visible = false; }
+            pnl_tk.Visible = true;
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            foreach (var button in buttons)
+                button.BackColor = SystemColors.Control;
+            btn_acc.BackColor = Color.Red;
+        }
+        private void btn_acc_Click(object sender, EventArgs e)
+        {
+            this.Text = "Tai Khoan";
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
+            foreach (var panel in p)
+            { panel.Visible = false; }
+            pnl_tk.Visible = true;
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            foreach (var button in buttons)
+                button.BackColor = SystemColors.Control;
+            btn_acc.BackColor = Color.Red;
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            btn_acc.PerformClick();
+;       }
+
+
 
         private void button23_Click(object sender, EventArgs e)
         {
             this.Text = "Lich Chieu";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
@@ -202,7 +234,7 @@ namespace WindowsFormsApp8
 
             LoadData();
             LoadPhongChieuData();
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button32.BackColor = Color.Red;
@@ -212,14 +244,14 @@ namespace WindowsFormsApp8
         //dg code
         private void button16_Click(object sender, EventArgs e)
         {
-            Panel[] panels = { flp_admin, ftp_DL, panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai, pnlPhongChieu };
+            Panel[] panels = { flp_admin, ftp_DL, panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai, pnlPhongChieu, pnl_tk };
             foreach (var pan in panels)
             {
                 pan.Visible = false;
             }
 
             flp_admin.Visible = true;
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button16.BackColor = Color.Red;
@@ -233,12 +265,12 @@ namespace WindowsFormsApp8
         private void button17_Click(object sender, EventArgs e)
         {
             this.Text = "Du Lieu";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             ftp_DL.Visible = true;
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button17.BackColor = Color.Red;
@@ -251,11 +283,11 @@ namespace WindowsFormsApp8
         private void button15_Click(object sender, EventArgs e)
         {
             this.Text = "Khach Hang";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             pnlKH.Visible = true;
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button15.BackColor = Color.Red;
@@ -267,13 +299,13 @@ namespace WindowsFormsApp8
         private void button13_Click(object sender, EventArgs e)
         {
             this.Text = "Nhan Vien";
-            Panel[] panels = { flp_admin, ftp_DL, panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai, pnlPhongChieu };
+            Panel[] panels = { flp_admin, ftp_DL, panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai, pnlPhongChieu, pnl_tk };
             foreach (var pan in panels)
             {
                 pan.Visible = false;
             }
             pnlNV.Visible = true;
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button13.BackColor = Color.Red;
@@ -285,13 +317,13 @@ namespace WindowsFormsApp8
         private void button14_Click(object sender, EventArgs e)
         {
             this.Text = "Doanh Thu";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             pnlDoanhThu.Visible = true;
 
             loadCBPhim();
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button14.BackColor = Color.Red;
@@ -304,12 +336,12 @@ namespace WindowsFormsApp8
         private void button24_Click(object sender, EventArgs e)
         {
             this.Text = "Loai Man Hinh";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlLoaiManHinh.Visible = true;
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button24.BackColor = Color.Red;
@@ -324,12 +356,12 @@ namespace WindowsFormsApp8
         private void button28_Click(object sender, EventArgs e)
         {
             this.Text = "Phong Chieu";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlPhongChieu.Visible = true;
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button28.BackColor = Color.Red;
@@ -344,12 +376,12 @@ namespace WindowsFormsApp8
         private void button29_Click(object sender, EventArgs e)
         {
             this.Text = "The Loai";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlTheLoai.Visible = true;
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button29.BackColor = Color.Red;
@@ -364,14 +396,14 @@ namespace WindowsFormsApp8
         private void button30_Click(object sender, EventArgs e)
         {
             this.Text = "Phim";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlPhim.Visible = true;
 
             LoadTheLoaiToCheckedListBox();
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button30.BackColor = Color.Red;
@@ -386,14 +418,14 @@ namespace WindowsFormsApp8
         private void button31_Click(object sender, EventArgs e)
         {
             this.Text = "Dinh Dang";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlDinhDang.Visible = true;
 
             LoadComboBoxData();
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button31.BackColor = Color.Red;
@@ -408,7 +440,7 @@ namespace WindowsFormsApp8
         private void button32_Click(object sender, EventArgs e)
         {
             this.Text = "Lich Chieu";
-            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, ftp_DL, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai, pnl_tk };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
@@ -416,7 +448,7 @@ namespace WindowsFormsApp8
 
             LoadData();
             LoadPhongChieuData();
-            System.Windows.Forms.Button[] buttons = { button7, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
+            System.Windows.Forms.Button[] buttons = { btn_acc, button16, button17, button15, button13, button14, button24, button28, button29, button30, button31, button32 };
             foreach (var button in buttons)
                 button.BackColor = SystemColors.Control;
             button32.BackColor = Color.Red;
@@ -1982,7 +2014,8 @@ namespace WindowsFormsApp8
                             // Lưu thay đổi vào cơ sở dữ liệu
                             context.SaveChanges();
                             MessageBox.Show("Cập nhật lịch chiếu thành công!");
-                            btnXemLC.PerformClick(); // Tải lại danh sách
+                            btnXemLC.PerformClick();
+                            ClearTextBoxes(pnlLichChieu);// Tải lại danh sách
                         }
                         else
                         {
@@ -2048,35 +2081,243 @@ namespace WindowsFormsApp8
 
 
         private void btnThongKe_Click(object sender, EventArgs e)
-    {
-
-    }
-    public void loadCBPhim()
-    {
-        try
         {
-            using (var context = new Model1())
-            {
-                // Lấy dữ liệu từ bảng Phim
-                var phimList = context.Phims
-                    .Select(phim => new
-                    {
-                        phim.id,
-                        phim.TenPhim
-                    })
-                    .ToList();
 
-                // Gán dữ liệu vào ComboBox
-                cmbChonPhim.DataSource = phimList;
-                cmbChonPhim.DisplayMember = "TenPhim"; // Hiển thị tên phim
-                cmbChonPhim.ValueMember = "id"; // Giá trị là id của phim
+        }
+        public void loadCBPhim()
+        {
+            try
+            {
+                using (var context = new Model1())
+                {
+                    // Lấy dữ liệu từ bảng Phim
+                    var phimList = context.Phims
+                        .Select(phim => new
+                        {
+                            phim.id,
+                            phim.TenPhim
+                        })
+                        .ToList();
+
+                    // Gán dữ liệu vào ComboBox
+                    cmbChonPhim.DataSource = phimList;
+                    cmbChonPhim.DisplayMember = "TenPhim"; // Hiển thị tên phim
+                    cmbChonPhim.ValueMember = "id"; // Giá trị là id của phim
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
-        catch (Exception ex)
+
+        private void btnXemTK_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Lỗi: " + ex.Message);
+            try
+            {
+                using (var context = new Model1())
+                {
+                    // Tải danh sách nhân viên
+                    var accounts = context.ACCOUNTs
+                                           .Select(acc => new
+                                           {
+                                               acc.id,
+                                               acc.idnv,
+                                               acc.taikhoan,
+                                               acc.matkhau,
+                                               acc.chucvu
+
+                                           }).ToList();
+
+                    dgv_TaiKhoan.DataSource = accounts; // Gán dữ liệu vào DataGridView
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
-    }
+
+        private void btnThemTK_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var context = new Model1())
+                {
+                    var cv = "";
+                    if (rad_bv.Checked)
+                    {
+                         cv = "banve";
+                    }
+                    else if (rad_ql.Checked)
+                    {
+                        cv = "quanly";
+                    }
+                    else
+                    {
+                        MessageBox.Show("vui long chon chuc vu !!!!");  
+                    }
+
+                    if (cv != "")
+                    {
+
+                        // Tạo đối tượng nhân viên mới
+                        var newacc = new ACCOUNT
+                        {
+                            id = txt_id.Text,
+                            idnv = txt_idnv.Text,
+                            taikhoan = txt_user.Text,
+                            matkhau = txt_pass.Text,
+                            chucvu = cv,
+
+
+                        };
+
+                        // Thêm nhân viên vào DbSet
+                        context.ACCOUNTs.Add(newacc);
+                        context.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu
+                        MessageBox.Show("Thêm tai khoan thành công!");
+                        btnXemTK.PerformClick();// Tải lại danh sách sau khi thêm
+                        ClearTextBoxes(pnl_tk);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
+        private void btnSuaTK_Click(object sender, EventArgs e)
+        {
+            if (dgv_TaiKhoan.SelectedRows.Count > 0)
+            {
+                var id = dgv_TaiKhoan.SelectedRows[0].Cells["id"].Value.ToString();
+                try
+                {
+                    var cv = "";
+                    if (rad_bv.Checked)
+                    {
+                        cv = "banve";
+                    }
+                    else if (rad_ql.Checked)
+                    {
+                        cv = "quanly";
+                    }
+                    using (var context = new Model1())
+                    {
+                        var acc = context.ACCOUNTs.FirstOrDefault(nv => nv.id == id);
+                        if (acc != null)
+                        {
+                            acc.idnv = txt_idnv.Text;
+                            acc.taikhoan = txt_user.Text;
+                            acc.matkhau = txt_pass.Text;
+                            acc.chucvu = cv;
+
+                            context.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu
+                            MessageBox.Show("Cập nhật tai khoan thành công!");
+                            btnXemTK.PerformClick(); // Tải lại danh sách sau khi sửa
+                            ClearTextBoxes(pnl_tk);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không tìm thấy nhân viên để cập nhật.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một tai khoan để sửa.");
+            }
+        }
+
+        private void dgv_TaiKhoan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                var row = dgv_TaiKhoan.Rows[e.RowIndex];
+                txt_id.Text = row.Cells["id"].Value?.ToString();
+                txt_idnv.Text = row.Cells["idnv"].Value?.ToString();
+                txt_user.Text = row.Cells["taikhoan"].Value?.ToString();
+                txt_pass.Text = row.Cells["matkhau"].Value?.ToString();
+                var cv = row.Cells["chucvu"].Value?.ToString();
+                if (cv == "banve")
+                {
+                    rad_bv.Checked = true;
+                }
+                else if (cv == "quanly")
+                {
+                    rad_ql.Checked = true;
+                }
+            }
+        }
+
+        private void btnXoaTK_Click(object sender, EventArgs e)
+        {
+            if (dgv_TaiKhoan.SelectedRows.Count > 0)
+            {
+                var id = dgv_TaiKhoan.SelectedRows[0].Cells["id"].Value.ToString();
+                try
+                {
+                    using (var context = new Model1())
+                    {
+                        var acc = context.ACCOUNTs.FirstOrDefault(nv => nv.id == id);
+                        if (acc != null)
+                        {
+                            context.ACCOUNTs.Remove(acc);
+                            context.SaveChanges();
+                            MessageBox.Show("Xóa tai khoan thành công!");
+                            btnXemTK.PerformClick(); // Tải lại danh sách sau khi xóa
+                            ClearTextBoxes(pnl_tk);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không tìm thấy tai khoan để xóa.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+        }
+
+        
+
+        private void txt_tktk_TextChanged(object sender, EventArgs e)
+        {
+            string searchValue = txt_tktk.Text.Trim();
+
+            using (var db = new Model1())
+            {
+                var searchResults = db.ACCOUNTs
+                                      .Where(Mk => Mk.idnv.Contains(searchValue))
+                                      .ToList();
+
+
+                dgv_TaiKhoan.DataSource = searchResults;
+            }
+        }
+
+        // Hàm để clear tất cả TextBox trong một Panel
+
+        private void ClearTextBoxes(Panel panel)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                if (control is System.Windows.Forms.TextBox textBox)
+                {
+                    textBox.Text = string.Empty;
+                }
+            }
+        }
 
 
     }
