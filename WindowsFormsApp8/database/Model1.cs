@@ -10,6 +10,7 @@ namespace WindowsFormsApp8.database
         public Model1()
             : base("name=Model1")
         {
+            this.Configuration.LazyLoadingEnabled = false; // T?t Lazy Loading
         }
 
         public virtual DbSet<ACCOUNT> ACCOUNTs { get; set; }

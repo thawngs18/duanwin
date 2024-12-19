@@ -1777,7 +1777,7 @@
             this.pnlNV.Controls.Add(this.label15);
             this.pnlNV.Controls.Add(this.label14);
             this.pnlNV.Controls.Add(this.label1);
-            this.pnlNV.Location = new System.Drawing.Point(126, 28);
+            this.pnlNV.Location = new System.Drawing.Point(1093, 42);
             this.pnlNV.Name = "pnlNV";
             this.pnlNV.Size = new System.Drawing.Size(903, 495);
             this.pnlNV.TabIndex = 22;
