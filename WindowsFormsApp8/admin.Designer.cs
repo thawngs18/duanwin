@@ -1991,7 +1991,7 @@
             this.pnlDoanhThu.Controls.Add(this.label57);
             this.pnlDoanhThu.Controls.Add(this.label56);
             this.pnlDoanhThu.Controls.Add(this.label55);
-            this.pnlDoanhThu.Location = new System.Drawing.Point(131, 26);
+            this.pnlDoanhThu.Location = new System.Drawing.Point(1071, 31);
             this.pnlDoanhThu.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDoanhThu.Name = "pnlDoanhThu";
             this.pnlDoanhThu.Size = new System.Drawing.Size(900, 499);
@@ -2053,6 +2053,7 @@
             // 
             // dtpNgayKT
             // 
+            this.dtpNgayKT.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayKT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgayKT.Location = new System.Drawing.Point(315, 58);
             this.dtpNgayKT.Margin = new System.Windows.Forms.Padding(2);
@@ -2062,12 +2063,14 @@
             // 
             // dtpNgayBD
             // 
+            this.dtpNgayBD.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayBD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgayBD.Location = new System.Drawing.Point(115, 58);
             this.dtpNgayBD.Margin = new System.Windows.Forms.Padding(2);
             this.dtpNgayBD.Name = "dtpNgayBD";
             this.dtpNgayBD.Size = new System.Drawing.Size(86, 20);
             this.dtpNgayBD.TabIndex = 4;
+            this.dtpNgayBD.Value = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
             // 
             // cmbChonPhim
             // 

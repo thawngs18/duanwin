@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp8.database;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace WindowsFormsApp8
@@ -467,62 +468,104 @@ namespace WindowsFormsApp8
 
             if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Thanh toán thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Đổi màu ghế đã chọn thành màu xám
-                foreach (Control control in panel1.Controls)
+                using (var context = new Model1())
                 {
-                    if (control is Button btn && btn.BackColor == Color.Red)
+                    // Kiểm tra ID Lịch Chiếu có tồn tại không
+                    var lichChieu = context.LichChieux.FirstOrDefault(lc => lc.id == lblidlc.Text);
+                    if (lichChieu == null)
                     {
-                        btn.BackColor = Color.Gray; // Đổi màu ghế đã chọn thành màu xám
+                        MessageBox.Show("Lịch chiếu không tồn tại trong cơ sở dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
-                }
 
-                // Tạo danh sách ghế đã chọn để truyền qua form "Vé"
-                List<string> danhSachGhe = new List<string>();
-                foreach (var hang in gheDaChon)
-                {
-                    char tenHang = (char)((hang.Key - 16) / 30 + 65); // Chuyển tọa độ Y thành A, B, C...
-                    foreach (var ghe in hang.Value)
+                    // Kiểm tra ID Phim có tồn tại không
+                    var phim = context.Phims.FirstOrDefault(p => p.TenPhim == lbltenphim.Text);
+                    if (phim == null)
                     {
-                        int soGhe = (ghe - 11) / 30 + 1; // Chuyển tọa độ X thành số ghế
-                        danhSachGhe.Add($"{tenHang}{soGhe}");
+                        MessageBox.Show("Phim không tồn tại trong cơ sở dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
+
+                    // Kiểm tra nếu đã có dữ liệu trong bảng DoanhThu
+                    var existingDoanhThu = context.DoanhThus.FirstOrDefault(dt => dt.idLichChieu == lblidlc.Text && dt.idPhim == phim.id);
+
+                    if (existingDoanhThu != null)
+                    {
+                        // Nếu đã tồn tại, cộng thêm vào trường Tien
+                        existingDoanhThu.Tien += (double)thanhtoan; // Cộng thêm tiền từ giao dịch hiện tại
+                    }
+                    else
+                    {
+                        // Nếu chưa tồn tại, thêm mới một bản ghi
+                        var doanhThu = new DoanhThu
+                        {
+                            idLichChieu = lblidlc.Text,
+                            idPhim = phim.id,
+                            Tien = (double)thanhtoan
+
+                        };
+
+                        context.DoanhThus.Add(doanhThu);
+                    }
+
+                    context.SaveChanges(); // Lưu vào cơ sở dữ liệu
+                    MessageBox.Show("Thanh toán thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Đổi màu ghế đã chọn thành màu xám
+                    foreach (Control control in panel1.Controls)
+                    {
+                        if (control is Button btn && btn.BackColor == Color.Red)
+                        {
+                            btn.BackColor = Color.Gray; // Đổi màu ghế đã chọn thành màu xám
+                        }
+                    }
+
+                    // Tạo danh sách ghế đã chọn để truyền qua form "Vé"
+                    List<string> danhSachGhe = new List<string>();
+                    foreach (var hang in gheDaChon)
+                    {
+                        char tenHang = (char)((hang.Key - 16) / 30 + 65); // Chuyển tọa độ Y thành A, B, C...
+                        foreach (var ghe in hang.Value)
+                        {
+                            int soGhe = (ghe - 11) / 30 + 1; // Chuyển tọa độ X thành số ghế
+                            danhSachGhe.Add($"{tenHang}{soGhe}");
+                        }
+                    }
+
+                    string danhSachGheString = string.Join(", ", danhSachGhe);
+                    // Tạo mới Form "Vé" mỗi lần
+                    Ve ve = new Ve(lbltenphong.Text, lbltenphim.Text, lbltgchieu.Text, danhSachGheString);
+
+
+                    // Reset nội dung form trước khi hiển thị
+                    ve.ResetLabelsInPanel();
+                    ve.ShowDialog();
+
+                    gheDaChon.Clear();
+                    // Reset lại số lượng vé đã chọn
+                    soLuongNguoiLon = 0;
+                    soLuongSV = 0;
+                    soLuongTreEm = 0;
+
+                    // Reset lại tổng tiền
+                    tongTien = 0;
+                    thanhtoan = 0;
+                    GiamGia = 0;
+                    txtThanhTien.Clear();  // Xóa hiển thị tổng tiền
+                    textBox1.Clear();
+                    textBox2.Clear();
+
+                    // Reset lại các radio button (nếu cần thiết)
+                    radNguoiLon.Checked = false;
+                    radSV.Checked = false;
+                    radTreEm.Checked = false;
+                    chkTV.Checked = false;
+
+
+
                 }
-
-                string danhSachGheString = string.Join(", ", danhSachGhe);
-                // Tạo mới Form "Vé" mỗi lần
-                Ve ve = new Ve(lbltenphong.Text, lbltenphim.Text, lbltgchieu.Text, danhSachGheString);
-
-
-                // Reset nội dung form trước khi hiển thị
-                ve.ResetLabelsInPanel();
-                ve.ShowDialog();
-
-                gheDaChon.Clear();
-                // Reset lại số lượng vé đã chọn
-                soLuongNguoiLon = 0;
-                soLuongSV = 0;
-                soLuongTreEm = 0;
-
-                // Reset lại tổng tiền
-                tongTien = 0;
-                thanhtoan = 0;
-                GiamGia = 0;
-                txtThanhTien.Clear();  // Xóa hiển thị tổng tiền
-                textBox1.Clear();
-                textBox2.Clear();
-
-                // Reset lại các radio button (nếu cần thiết)
-                radNguoiLon.Checked = false;
-                radSV.Checked = false;
-                radTreEm.Checked = false;
-                chkTV.Checked = false;
-           
-
 
             }
-
 
         }
         private Ve formVe;

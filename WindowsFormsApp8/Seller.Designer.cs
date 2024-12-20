@@ -132,6 +132,7 @@
             this.dtpThoiGianChieu.Name = "dtpThoiGianChieu";
             this.dtpThoiGianChieu.Size = new System.Drawing.Size(200, 26);
             this.dtpThoiGianChieu.TabIndex = 0;
+            this.dtpThoiGianChieu.Value = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
             // 
             // button1
             // 

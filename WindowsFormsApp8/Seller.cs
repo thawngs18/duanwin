@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.SqlServer;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -53,8 +54,11 @@ namespace WindowsFormsApp8
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string tenP = comboBox1.Text;
-            string tenMH = comboBox2.Text;
+            string tenP = comboBox1.Text.Trim(); // Tên phim được chọn
+            string tenMH = comboBox2.Text.Trim(); // Tên loại màn hình được chọn
+            DateTime ngayChon = dtpThoiGianChieu.Value; // Ngày được chọn trong DateTimePicker
+            int thangChon = ngayChon.Month; // Lấy tháng từ ngày
+            int namChon = ngayChon.Year;   // Lấy năm từ ngày
 
             try
             {
@@ -65,7 +69,10 @@ namespace WindowsFormsApp8
                                   join p in context.Phims on d.idPhim equals p.id
                                   join h in context.LoaiManHinhs on d.idLoaiManHinh equals h.id
                                   join c in context.PhongChieux on l.idPhong equals c.id
-                                  where p.TenPhim == tenP && h.TenMH == tenMH
+                                  where p.TenPhim == tenP
+                                        && h.TenMH == tenMH
+                                        && SqlFunctions.DatePart("month", l.ThoiGianChieu) == thangChon
+                                        && SqlFunctions.DatePart("year", l.ThoiGianChieu) == namChon
                                   select new
                                   {
                                       l.id,
@@ -77,7 +84,14 @@ namespace WindowsFormsApp8
                                       c.TenPhong
                                   }).ToList();
 
+                    // Hiển thị dữ liệu trong DataGridView
                     dtgLichChieuP.DataSource = result;
+
+                    // Thông báo nếu không có kết quả
+                    if (!result.Any())
+                    {
+                        MessageBox.Show("Không có lịch chiếu nào khớp với tháng đã chọn!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
             catch (Exception ex)
