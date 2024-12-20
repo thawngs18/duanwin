@@ -47,5 +47,16 @@ namespace WindowsFormsApp8
             dangNhap.ShowDialog();
            
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult rs = MessageBox.Show("Ban co chac muon doi lai mat khau","Canh bao",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            if (rs == DialogResult.Yes)
+            {
+                DatLaiMK doimk = new DatLaiMK(button4.Text);
+                doimk.Show();
+            }
+            
+        }
     }
 }

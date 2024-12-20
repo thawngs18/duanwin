@@ -36,6 +36,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +47,7 @@
             this.txt_pass.Location = new System.Drawing.Point(64, 149);
             this.txt_pass.Multiline = true;
             this.txt_pass.Name = "txt_pass";
-            this.txt_pass.Size = new System.Drawing.Size(295, 38);
+            this.txt_pass.Size = new System.Drawing.Size(270, 38);
             this.txt_pass.TabIndex = 1;
             // 
             // txt_user
@@ -56,7 +57,7 @@
             this.txt_user.Location = new System.Drawing.Point(64, 69);
             this.txt_user.Multiline = true;
             this.txt_user.Name = "txt_user";
-            this.txt_user.Size = new System.Drawing.Size(295, 37);
+            this.txt_user.Size = new System.Drawing.Size(270, 37);
             this.txt_user.TabIndex = 0;
             // 
             // label3
@@ -85,6 +86,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.txt_pass);
             this.panel1.Controls.Add(this.txt_user);
@@ -117,6 +119,14 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(295, 149);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(39, 38);
+            this.button2.TabIndex = 4;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // DangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,5 +153,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button2;
     }
 }

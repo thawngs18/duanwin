@@ -2328,6 +2328,8 @@ namespace WindowsFormsApp8
             }
         }
 
+
+
         // Hàm để clear tất cả TextBox trong một Panel
 
         private void ClearTextBoxes(Panel panel)

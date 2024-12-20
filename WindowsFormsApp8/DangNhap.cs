@@ -37,7 +37,7 @@ namespace WindowsFormsApp8
                     // Mở form chính hoặc thực hiện các hành động khác
                     this.Hide();
                     var name = context.NhanViens.FirstOrDefault(n => n.id == idnv);
-                    var tendn = name.HoTen;
+                    var tendn = name.HoTen; 
                     MessageBox.Show($"Đăng nhập thành công!,Xin chao {cn} : {tendn}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     var cnfrom = new chonCN(cn, tendn); // Thay MainForm bằng form chính của bạn
                     cnfrom.Show();
