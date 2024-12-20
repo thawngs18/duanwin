@@ -126,7 +126,7 @@
             // 
             // dtpThoiGianChieu
             // 
-            this.dtpThoiGianChieu.CustomFormat = "dd/MM/yyyy";
+            this.dtpThoiGianChieu.CustomFormat = "MM/yyyy";
             this.dtpThoiGianChieu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpThoiGianChieu.Location = new System.Drawing.Point(48, 87);
             this.dtpThoiGianChieu.Name = "dtpThoiGianChieu";
