@@ -10,11 +10,11 @@ namespace WindowsFormsApp8.database
         public Model1()
             : base("name=Model1")
         {
-            this.Configuration.LazyLoadingEnabled = false; // T?t Lazy Loading
         }
 
         public virtual DbSet<ACCOUNT> ACCOUNTs { get; set; }
         public virtual DbSet<DinhDangPhim> DinhDangPhims { get; set; }
+        public virtual DbSet<DoanhThu> DoanhThus { get; set; }
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
         public virtual DbSet<LichChieu> LichChieux { get; set; }
         public virtual DbSet<LoaiManHinh> LoaiManHinhs { get; set; }
@@ -22,7 +22,6 @@ namespace WindowsFormsApp8.database
         public virtual DbSet<Phim> Phims { get; set; }
         public virtual DbSet<PhongChieu> PhongChieux { get; set; }
         public virtual DbSet<TheLoai> TheLoais { get; set; }
-        public virtual DbSet<DoanhThu> DoanhThus { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -63,6 +62,14 @@ namespace WindowsFormsApp8.database
                 .WithRequired(e => e.DinhDangPhim)
                 .HasForeignKey(e => e.idDinhDang)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<DoanhThu>()
+                .Property(e => e.idLichChieu)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<DoanhThu>()
+                .Property(e => e.idPhim)
+                .IsUnicode(false);
 
             modelBuilder.Entity<KhachHang>()
                 .Property(e => e.id)
@@ -155,14 +162,6 @@ namespace WindowsFormsApp8.database
 
             modelBuilder.Entity<TheLoai>()
                 .Property(e => e.id)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DoanhThu>()
-                .Property(e => e.idLichChieu)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DoanhThu>()
-                .Property(e => e.idPhim)
                 .IsUnicode(false);
         }
     }

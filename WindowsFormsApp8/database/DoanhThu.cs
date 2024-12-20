@@ -21,6 +21,9 @@ namespace WindowsFormsApp8.database
 
         public double? Tien { get; set; }
 
+        [Column(TypeName = "date")]
+        public DateTime? NgayChieu { get; set; }
+
         public virtual LichChieu LichChieu { get; set; }
 
         public virtual Phim Phim { get; set; }

@@ -138,33 +138,31 @@ namespace WindowsFormsApp8
             {
                 List<int> gheDaChonTrongHang = kvp.Value;
 
-                // Bỏ qua hàng nếu có 1 ghế hoặc không đủ kiểm tra
+                // Bỏ qua nếu có 1 ghế hoặc không đủ kiểm tra
                 if (gheDaChonTrongHang.Count <= 1)
                     continue;
 
-                // Sắp xếp danh sách ghế trong hàng
+                // Sắp xếp danh sách ghế đã chọn trong hàng
                 gheDaChonTrongHang.Sort();
 
-                // Kiểm tra các ghế đã chọn
+                // Kiểm tra ghế bị bỏ giữa
                 for (int i = 0; i < gheDaChonTrongHang.Count - 1; i++)
                 {
                     int ghe1 = gheDaChonTrongHang[i];
                     int ghe2 = gheDaChonTrongHang[i + 1];
 
-                    // Nếu khoảng cách giữa 2 ghế là 2 ghế (tức có 1 ghế trống chính giữa)
-                    if (ghe2 - ghe1 == 60) // 60px = 30px * 2 (mỗi ghế cách nhau 30px)
+                    // Nếu có ghế trống giữa 2 ghế đã chọn
+                    for (int gheTrungTam = ghe1 + 1; gheTrungTam < ghe2; gheTrungTam++)
                     {
-                        int gheTrungTam = ghe1 + 30; // Ghế nằm giữa hai ghế đã chọn
-
                         if (IsSeatEmpty(gheTrungTam, kvp.Key))
                         {
-                            return true; // Phát hiện có 1 ghế trống chính giữa
+                            return true; // Phát hiện ghế trống chính giữa
                         }
                     }
                 }
             }
 
-            return false; // Không phát hiện ghế bị bỏ chính gi
+            return false; // Không phát hiện ghế bị bỏ giữa
         }
         private bool KiemTraGheCot1DaChon(int yPosition)
         {
@@ -199,7 +197,7 @@ namespace WindowsFormsApp8
                     gheDaChon[yPosition].Add(xPosition);
                 }
             }
-            else // Ghế bị bỏ chọn
+            else if (b.BackColor == Color.White) // Ghế bị bỏ chọn
             {
                 if (gheDaChon[yPosition].Contains(xPosition))
                 {
@@ -247,11 +245,11 @@ namespace WindowsFormsApp8
         }
         private bool IsSeatEmpty(int x, int y)
         {
-            foreach (Control control in panel2.Controls)
+            foreach (Control control in panel1.Controls) // Kiểm tra panel1 (danh sách ghế)
             {
-                if (control is Button btn && btn.Location.X == x && btn.Location.Y == y && btn.BackColor == Color.White)
+                if (control is Button btn && btn.Location.X == x && btn.Location.Y == y)
                 {
-                    return true;  // Ghế trống
+                    return btn.BackColor == Color.White; // Trả về true nếu ghế đang trống
                 }
             }
             return false; // Không có ghế trống
@@ -501,7 +499,8 @@ namespace WindowsFormsApp8
                         {
                             idLichChieu = lblidlc.Text,
                             idPhim = phim.id,
-                            Tien = (double)thanhtoan
+                            Tien = (double)thanhtoan,
+                            NgayChieu = lichChieu.ThoiGianChieu.Date // Lưu NgayChieu
 
                         };
 

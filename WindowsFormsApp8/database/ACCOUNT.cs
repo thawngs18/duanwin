@@ -27,4 +27,3 @@ namespace WindowsFormsApp8.database
         public virtual NhanVien NhanVien { get; set; }
     }
 }
-    
