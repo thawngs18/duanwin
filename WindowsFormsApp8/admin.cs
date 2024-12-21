@@ -2383,7 +2383,47 @@ namespace WindowsFormsApp8
             }
         }
 
+        private void btnBaoCao_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Lấy dữ liệu từ DataGridView (dtgDoanhThu)
+                List<BaoCaoItem> danhSachBaoCao = new List<BaoCaoItem>();
+                foreach (DataGridViewRow row in dtgDoanhThu.Rows)
+                {
+                    if (row.Cells["TenPhim"].Value != null) // Kiểm tra dòng có dữ liệu
+                    {
+                        var item = new BaoCaoItem
+                        {
+                            STT = row.Index + 1, // Số thứ tự
+                            TenPhim = row.Cells["TenPhim"].Value.ToString(),
+                            NgayChieu = DateTime.Parse(row.Cells["NgayChieu"].Value.ToString()),
+                            TienBanVe = decimal.Parse(row.Cells["Tien"].Value.ToString()) // Sửa lỗi kiểu dữ liệu
+                        };
 
+                        danhSachBaoCao.Add(item);
+                    }
+                }
+
+                // Lấy tổng doanh thu từ TextBox
+                decimal tongDoanhThu = decimal.Parse(txtDoanhThu.Text, System.Globalization.NumberStyles.Currency);
+
+                // Lấy khoảng thời gian
+                DateTime tuNgay = dtpNgayBD.Value;
+                DateTime denNgay = dtpNgayKT.Value;
+
+    
+      
+                BaoCao bc = new BaoCao();
+                bc.HienThiBaoCao(danhSachBaoCao, tongDoanhThu, tuNgay, denNgay);
+                bc.Show();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tạo báo cáo: " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
    

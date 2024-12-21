@@ -2019,6 +2019,7 @@
             // 
             // dtgDoanhThu
             // 
+            this.dtgDoanhThu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgDoanhThu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgDoanhThu.Location = new System.Drawing.Point(47, 94);
             this.dtgDoanhThu.Margin = new System.Windows.Forms.Padding(2);
@@ -2038,6 +2039,7 @@
             this.btnBaoCao.Size = new System.Drawing.Size(73, 49);
             this.btnBaoCao.TabIndex = 7;
             this.btnBaoCao.UseVisualStyleBackColor = true;
+            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
             // btnThongKe
             // 

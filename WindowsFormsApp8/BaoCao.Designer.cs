@@ -31,24 +31,25 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaoCao));
             this.txtDate = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtNgayKT = new System.Windows.Forms.TextBox();
+            this.txtNgayBD = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtfromdate = new System.Windows.Forms.TextBox();
-            this.txttodate = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDoanhThu = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvBaoCaoDT = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
@@ -62,27 +63,42 @@
             // 
             // txtDate
             // 
-            this.txtDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDate.Enabled = false;
             this.txtDate.Location = new System.Drawing.Point(621, 140);
             this.txtDate.Name = "txtDate";
             this.txtDate.ReadOnly = true;
-            this.txtDate.Size = new System.Drawing.Size(146, 20);
+            this.txtDate.Size = new System.Drawing.Size(167, 13);
             this.txtDate.TabIndex = 11;
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtNgayKT);
+            this.panel1.Controls.Add(this.txtNgayBD);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtfromdate);
-            this.panel1.Controls.Add(this.txttodate);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtDoanhThu);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.dgvBaoCaoDT);
             this.panel1.Location = new System.Drawing.Point(12, 189);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(776, 233);
             this.panel1.TabIndex = 10;
+            // 
+            // txtNgayKT
+            // 
+            this.txtNgayKT.Location = new System.Drawing.Point(353, 29);
+            this.txtNgayKT.Name = "txtNgayKT";
+            this.txtNgayKT.Size = new System.Drawing.Size(148, 20);
+            this.txtNgayKT.TabIndex = 8;
+            // 
+            // txtNgayBD
+            // 
+            this.txtNgayBD.Location = new System.Drawing.Point(112, 29);
+            this.txtNgayBD.Name = "txtNgayBD";
+            this.txtNgayBD.Size = new System.Drawing.Size(136, 20);
+            this.txtNgayBD.TabIndex = 7;
             // 
             // label4
             // 
@@ -102,32 +118,14 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Từ Ngày:";
             // 
-            // txtfromdate
+            // txtDoanhThu
             // 
-            this.txtfromdate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtfromdate.Location = new System.Drawing.Point(354, 24);
-            this.txtfromdate.Name = "txtfromdate";
-            this.txtfromdate.ReadOnly = true;
-            this.txtfromdate.Size = new System.Drawing.Size(146, 20);
-            this.txtfromdate.TabIndex = 4;
-            // 
-            // txttodate
-            // 
-            this.txttodate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txttodate.Location = new System.Drawing.Point(91, 24);
-            this.txttodate.Name = "txttodate";
-            this.txttodate.ReadOnly = true;
-            this.txttodate.Size = new System.Drawing.Size(146, 20);
-            this.txttodate.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(605, 182);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(146, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtDoanhThu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDoanhThu.Location = new System.Drawing.Point(605, 182);
+            this.txtDoanhThu.Name = "txtDoanhThu";
+            this.txtDoanhThu.ReadOnly = true;
+            this.txtDoanhThu.Size = new System.Drawing.Size(146, 20);
+            this.txtDoanhThu.TabIndex = 2;
             // 
             // label2
             // 
@@ -144,14 +142,13 @@
             this.dgvBaoCaoDT.AllowUserToAddRows = false;
             this.dgvBaoCaoDT.AllowUserToDeleteRows = false;
             this.dgvBaoCaoDT.AllowUserToOrderColumns = true;
+            this.dgvBaoCaoDT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBaoCaoDT.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvBaoCaoDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBaoCaoDT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4,
-            this.Column5,
             this.Column6});
             this.dgvBaoCaoDT.Location = new System.Drawing.Point(65, 71);
             this.dgvBaoCaoDT.Name = "dgvBaoCaoDT";
@@ -176,18 +173,6 @@
             this.Column3.HeaderText = "Ngày Chiếu ";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Giờ Chiếu";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Số Vé Bán Được";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
@@ -245,11 +230,33 @@
             // toolStripSplitButton1
             // 
             this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.excelToolStripMenuItem,
+            this.wordToolStripMenuItem,
+            this.pDFToolStripMenuItem});
             this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
             this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
             this.toolStripSplitButton1.Text = "toolStripSplitButton1";
+            // 
+            // excelToolStripMenuItem
+            // 
+            this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
+            this.excelToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.excelToolStripMenuItem.Text = "Excel";
+            // 
+            // wordToolStripMenuItem
+            // 
+            this.wordToolStripMenuItem.Name = "wordToolStripMenuItem";
+            this.wordToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.wordToolStripMenuItem.Text = "Word";
+            // 
+            // pDFToolStripMenuItem
+            // 
+            this.pDFToolStripMenuItem.Name = "pDFToolStripMenuItem";
+            this.pDFToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.pDFToolStripMenuItem.Text = "PDF";
             // 
             // toolStripSeparator1
             // 
@@ -270,7 +277,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(32, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(30, 22);
             this.toolStripLabel1.Text = "Find";
             // 
             // toolStripSeparator3
@@ -281,7 +288,7 @@
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(35, 22);
+            this.toolStripLabel2.Size = new System.Drawing.Size(31, 22);
             this.toolStripLabel2.Text = "Next";
             // 
             // BaoCao
@@ -311,17 +318,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtfromdate;
-        private System.Windows.Forms.TextBox txttodate;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDoanhThu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvBaoCaoDT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
@@ -333,5 +332,14 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.TextBox txtNgayBD;
+        private System.Windows.Forms.TextBox txtNgayKT;
+        private System.Windows.Forms.ToolStripMenuItem excelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pDFToolStripMenuItem;
     }
 }

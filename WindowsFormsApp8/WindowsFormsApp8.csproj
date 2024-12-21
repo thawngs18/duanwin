@@ -92,6 +92,7 @@
     <Compile Include="BaoCao.Designer.cs">
       <DependentUpon>BaoCao.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaoCaoItem.cs" />
     <Compile Include="ComboBoxItem.cs" />
     <Compile Include="DangNhapTV.cs">
       <SubType>Form</SubType>
