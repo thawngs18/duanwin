@@ -30,9 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaoCao));
             this.txtDate = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelContent = new System.Windows.Forms.Panel();
             this.txtNgayKT = new System.Windows.Forms.TextBox();
             this.txtNgayBD = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDoanhThu = new System.Windows.Forms.TextBox();
@@ -42,21 +43,20 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.wordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.panel1.SuspendLayout();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolImage = new System.Windows.Forms.ToolStripButton();
+            this.toolSave = new System.Windows.Forms.ToolStripSplitButton();
+            this.pDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBaoCaoDT)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -65,45 +65,62 @@
             // 
             this.txtDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDate.Enabled = false;
-            this.txtDate.Location = new System.Drawing.Point(621, 140);
+            this.txtDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDate.Location = new System.Drawing.Point(564, 83);
             this.txtDate.Name = "txtDate";
             this.txtDate.ReadOnly = true;
-            this.txtDate.Size = new System.Drawing.Size(167, 13);
+            this.txtDate.Size = new System.Drawing.Size(167, 15);
             this.txtDate.TabIndex = 11;
             // 
-            // panel1
+            // panelContent
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.txtNgayKT);
-            this.panel1.Controls.Add(this.txtNgayBD);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtDoanhThu);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.dgvBaoCaoDT);
-            this.panel1.Location = new System.Drawing.Point(12, 189);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(776, 233);
-            this.panel1.TabIndex = 10;
+            this.panelContent.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panelContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContent.Controls.Add(this.txtDate);
+            this.panelContent.Controls.Add(this.txtNgayKT);
+            this.panelContent.Controls.Add(this.txtNgayBD);
+            this.panelContent.Controls.Add(this.label1);
+            this.panelContent.Controls.Add(this.label4);
+            this.panelContent.Controls.Add(this.label3);
+            this.panelContent.Controls.Add(this.txtDoanhThu);
+            this.panelContent.Controls.Add(this.label2);
+            this.panelContent.Controls.Add(this.dgvBaoCaoDT);
+            this.panelContent.Location = new System.Drawing.Point(12, 96);
+            this.panelContent.Name = "panelContent";
+            this.panelContent.Size = new System.Drawing.Size(810, 368);
+            this.panelContent.TabIndex = 10;
             // 
             // txtNgayKT
             // 
-            this.txtNgayKT.Location = new System.Drawing.Point(353, 29);
+            this.txtNgayKT.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtNgayKT.Location = new System.Drawing.Point(388, 171);
             this.txtNgayKT.Name = "txtNgayKT";
             this.txtNgayKT.Size = new System.Drawing.Size(148, 20);
             this.txtNgayKT.TabIndex = 8;
             // 
             // txtNgayBD
             // 
-            this.txtNgayBD.Location = new System.Drawing.Point(112, 29);
+            this.txtNgayBD.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtNgayBD.Location = new System.Drawing.Point(147, 171);
             this.txtNgayBD.Name = "txtNgayBD";
             this.txtNgayBD.Size = new System.Drawing.Size(136, 20);
             this.txtNgayBD.TabIndex = 7;
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label1.Location = new System.Drawing.Point(244, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(257, 53);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "DOANH THU";
+            // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(289, 27);
+            this.label4.Location = new System.Drawing.Point(324, 169);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 6;
@@ -111,8 +128,9 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 29);
+            this.label3.Location = new System.Drawing.Point(73, 171);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 5;
@@ -120,8 +138,9 @@
             // 
             // txtDoanhThu
             // 
+            this.txtDoanhThu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtDoanhThu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDoanhThu.Location = new System.Drawing.Point(605, 182);
+            this.txtDoanhThu.Location = new System.Drawing.Point(640, 324);
             this.txtDoanhThu.Name = "txtDoanhThu";
             this.txtDoanhThu.ReadOnly = true;
             this.txtDoanhThu.Size = new System.Drawing.Size(146, 20);
@@ -129,9 +148,10 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(451, 182);
+            this.label2.Location = new System.Drawing.Point(486, 324);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(147, 20);
             this.label2.TabIndex = 1;
@@ -142,6 +162,7 @@
             this.dgvBaoCaoDT.AllowUserToAddRows = false;
             this.dgvBaoCaoDT.AllowUserToDeleteRows = false;
             this.dgvBaoCaoDT.AllowUserToOrderColumns = true;
+            this.dgvBaoCaoDT.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dgvBaoCaoDT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBaoCaoDT.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvBaoCaoDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -150,7 +171,7 @@
             this.Column2,
             this.Column3,
             this.Column6});
-            this.dgvBaoCaoDT.Location = new System.Drawing.Point(65, 71);
+            this.dgvBaoCaoDT.Location = new System.Drawing.Point(100, 213);
             this.dgvBaoCaoDT.Name = "dgvBaoCaoDT";
             this.dgvBaoCaoDT.ReadOnly = true;
             this.dgvBaoCaoDT.Size = new System.Drawing.Size(643, 77);
@@ -180,23 +201,12 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label1.Location = new System.Drawing.Point(299, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 31);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "DOANH THU";
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripSplitButton1,
+            this.toolImage,
+            this.toolSave,
             this.toolStripSeparator1,
             this.toolStripSeparator2,
             this.toolStripTextBox1,
@@ -208,55 +218,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(834, 25);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButton3";
-            // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.excelToolStripMenuItem,
-            this.wordToolStripMenuItem,
-            this.pDFToolStripMenuItem});
-            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
-            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
-            // 
-            // excelToolStripMenuItem
-            // 
-            this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
-            this.excelToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.excelToolStripMenuItem.Text = "Excel";
-            // 
-            // wordToolStripMenuItem
-            // 
-            this.wordToolStripMenuItem.Name = "wordToolStripMenuItem";
-            this.wordToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.wordToolStripMenuItem.Text = "Word";
-            // 
-            // pDFToolStripMenuItem
-            // 
-            this.pDFToolStripMenuItem.Name = "pDFToolStripMenuItem";
-            this.pDFToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.pDFToolStripMenuItem.Text = "PDF";
             // 
             // toolStripSeparator1
             // 
@@ -291,19 +252,69 @@
             this.toolStripLabel2.Size = new System.Drawing.Size(31, 22);
             this.toolStripLabel2.Text = "Next";
             // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
+            // toolImage
+            // 
+            this.toolImage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolImage.Image = global::WindowsFormsApp8.Properties.Resources.imagesave;
+            this.toolImage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolImage.Name = "toolImage";
+            this.toolImage.Size = new System.Drawing.Size(23, 22);
+            this.toolImage.Text = "toolStripButton3";
+            this.toolImage.Click += new System.EventHandler(this.toolImage_Click);
+            // 
+            // toolSave
+            // 
+            this.toolSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolSave.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pDFToolStripMenuItem,
+            this.wordToolStripMenuItem,
+            this.excelToolStripMenuItem});
+            this.toolSave.Image = ((System.Drawing.Image)(resources.GetObject("toolSave.Image")));
+            this.toolSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolSave.Name = "toolSave";
+            this.toolSave.Size = new System.Drawing.Size(32, 22);
+            this.toolSave.Text = "toolStripSplitButton1";
+ 
+            // 
+            // pDFToolStripMenuItem
+            // 
+            this.pDFToolStripMenuItem.Name = "pDFToolStripMenuItem";
+            this.pDFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pDFToolStripMenuItem.Text = "PDF";
+            this.pDFToolStripMenuItem.Click += new System.EventHandler(this.pDFToolStripMenuItem_Click);
+            // 
+            // wordToolStripMenuItem
+            // 
+            this.wordToolStripMenuItem.Name = "wordToolStripMenuItem";
+            this.wordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wordToolStripMenuItem.Text = "Word";
+            // 
+            // excelToolStripMenuItem
+            // 
+            this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
+            this.excelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.excelToolStripMenuItem.Text = "Excel";
+            // 
             // BaoCao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 507);
-            this.Controls.Add(this.txtDate);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panelContent);
             this.Controls.Add(this.toolStrip1);
             this.Name = "BaoCao";
             this.Text = "BaoCao";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelContent.ResumeLayout(false);
+            this.panelContent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBaoCaoDT)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -315,7 +326,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtDate;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDoanhThu;
@@ -324,8 +335,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripButton toolImage;
+        private System.Windows.Forms.ToolStripSplitButton toolSave;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
@@ -338,8 +349,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.TextBox txtNgayBD;
         private System.Windows.Forms.TextBox txtNgayKT;
-        private System.Windows.Forms.ToolStripMenuItem excelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem wordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pDFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem excelToolStripMenuItem;
     }
 }
