@@ -1147,18 +1147,28 @@ namespace WindowsFormsApp8
         // Thể Loại
         private void btnXemTL_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 using (var context = new Model1())
                 {
-                    // Lấy danh sách thể loại
-                    var theLoaiList = context.TheLoais.ToList();
+                    // Lấy danh sách dữ liệu và chuyển sang DTO
+                    var theLoaiList = context.TheLoais
+                        .Select(tl => new
+                        {
+                            tl.id,
+                            tl.TenTheLoai,
+                             tl.MoTa
+                        })
+                        .ToList();
+
+                    // Gán dữ liệu vào DataGridView hoặc ListBox
                     dgvTL.DataSource = theLoaiList;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -2424,6 +2434,8 @@ namespace WindowsFormsApp8
                 MessageBox.Show("Lỗi khi tạo báo cáo: " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
     }
 }
    

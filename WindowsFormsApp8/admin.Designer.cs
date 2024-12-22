@@ -887,7 +887,7 @@
             this.pnlDinhDang.Controls.Add(this.btnSuaDD);
             this.pnlDinhDang.Controls.Add(this.btnXoaDD);
             this.pnlDinhDang.Controls.Add(this.btnThemDD);
-            this.pnlDinhDang.Location = new System.Drawing.Point(124, 135);
+            this.pnlDinhDang.Location = new System.Drawing.Point(127, 133);
             this.pnlDinhDang.Name = "pnlDinhDang";
             this.pnlDinhDang.Size = new System.Drawing.Size(905, 388);
             this.pnlDinhDang.TabIndex = 19;
@@ -1435,7 +1435,7 @@
             this.pnlTheLoai.Controls.Add(this.btnSuaTL);
             this.pnlTheLoai.Controls.Add(this.btnXoaTL);
             this.pnlTheLoai.Controls.Add(this.btnThemTL);
-            this.pnlTheLoai.Location = new System.Drawing.Point(133, 135);
+            this.pnlTheLoai.Location = new System.Drawing.Point(1061, 114);
             this.pnlTheLoai.Name = "pnlTheLoai";
             this.pnlTheLoai.Size = new System.Drawing.Size(904, 396);
             this.pnlTheLoai.TabIndex = 18;
@@ -1991,7 +1991,7 @@
             this.pnlDoanhThu.Controls.Add(this.label57);
             this.pnlDoanhThu.Controls.Add(this.label56);
             this.pnlDoanhThu.Controls.Add(this.label55);
-            this.pnlDoanhThu.Location = new System.Drawing.Point(1071, 31);
+            this.pnlDoanhThu.Location = new System.Drawing.Point(122, 25);
             this.pnlDoanhThu.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDoanhThu.Name = "pnlDoanhThu";
             this.pnlDoanhThu.Size = new System.Drawing.Size(900, 499);
