@@ -28,20 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ve));
             this.pnlVe = new System.Windows.Forms.Panel();
-            this.lblTenghe = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblTenPhim = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblPhong = new System.Windows.Forms.Label();
+            this.lblTenghe = new System.Windows.Forms.Label();
+            this.lblTenPhim = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.pnlQR = new System.Windows.Forms.Panel();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolbtnPrint = new System.Windows.Forms.ToolStripButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pnlQR = new System.Windows.Forms.Panel();
             this.pnlVe.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlVe
@@ -51,73 +50,6 @@
             this.pnlVe.Name = "pnlVe";
             this.pnlVe.Size = new System.Drawing.Size(364, 364);
             this.pnlVe.TabIndex = 1;
-            // 
-            // lblTenghe
-            // 
-            this.lblTenghe.AutoSize = true;
-            this.lblTenghe.Location = new System.Drawing.Point(32, 200);
-            this.lblTenghe.Name = "lblTenghe";
-            this.lblTenghe.Size = new System.Drawing.Size(35, 13);
-            this.lblTenghe.TabIndex = 3;
-            this.lblTenghe.Text = "label4";
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(32, 156);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(35, 13);
-            this.lblDate.TabIndex = 2;
-            this.lblDate.Text = "label3";
-            // 
-            // lblTenPhim
-            // 
-            this.lblTenPhim.AutoSize = true;
-            this.lblTenPhim.Location = new System.Drawing.Point(32, 106);
-            this.lblTenPhim.Name = "lblTenPhim";
-            this.lblTenPhim.Size = new System.Drawing.Size(35, 13);
-            this.lblTenPhim.TabIndex = 1;
-            this.lblTenPhim.Text = "label2";
-            // 
-            // lblPhong
-            // 
-            this.lblPhong.AutoSize = true;
-            this.lblPhong.Location = new System.Drawing.Point(32, 49);
-            this.lblPhong.Name = "lblPhong";
-            this.lblPhong.Size = new System.Drawing.Size(35, 13);
-            this.lblPhong.TabIndex = 0;
-            this.lblPhong.Text = "label1";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolbtnPrint});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(367, 25);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
-            // 
-            // toolbtnPrint
-            // 
-            this.toolbtnPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolbtnPrint.Image = ((System.Drawing.Image)(resources.GetObject("toolbtnPrint.Image")));
-            this.toolbtnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolbtnPrint.Name = "toolbtnPrint";
-            this.toolbtnPrint.Size = new System.Drawing.Size(23, 22);
-            this.toolbtnPrint.Text = "toolStripButton2";
-            this.toolbtnPrint.Click += new System.EventHandler(this.toolbtnPrint_Click);
             // 
             // groupBox1
             // 
@@ -132,12 +64,79 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thong Tin Ve";
             // 
+            // lblPhong
+            // 
+            this.lblPhong.AutoSize = true;
+            this.lblPhong.Location = new System.Drawing.Point(32, 49);
+            this.lblPhong.Name = "lblPhong";
+            this.lblPhong.Size = new System.Drawing.Size(35, 13);
+            this.lblPhong.TabIndex = 0;
+            this.lblPhong.Text = "label1";
+            // 
+            // lblTenghe
+            // 
+            this.lblTenghe.AutoSize = true;
+            this.lblTenghe.Location = new System.Drawing.Point(32, 199);
+            this.lblTenghe.Name = "lblTenghe";
+            this.lblTenghe.Size = new System.Drawing.Size(35, 13);
+            this.lblTenghe.TabIndex = 3;
+            this.lblTenghe.Text = "label4";
+            // 
+            // lblTenPhim
+            // 
+            this.lblTenPhim.AutoSize = true;
+            this.lblTenPhim.Location = new System.Drawing.Point(32, 99);
+            this.lblTenPhim.Name = "lblTenPhim";
+            this.lblTenPhim.Size = new System.Drawing.Size(35, 13);
+            this.lblTenPhim.TabIndex = 1;
+            this.lblTenPhim.Text = "label2";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(32, 149);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(35, 13);
+            this.lblDate.TabIndex = 2;
+            this.lblDate.Text = "label3";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolbtnPrint});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(367, 25);
+            this.toolStrip1.TabIndex = 2;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
             // pnlQR
             // 
-            this.pnlQR.Location = new System.Drawing.Point(3, 28);
+            this.pnlQR.Location = new System.Drawing.Point(3, 32);
             this.pnlQR.Name = "pnlQR";
             this.pnlQR.Size = new System.Drawing.Size(364, 364);
             this.pnlQR.TabIndex = 4;
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::WindowsFormsApp8.Properties.Resources.QR;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
+            // 
+            // toolbtnPrint
+            // 
+            this.toolbtnPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolbtnPrint.Image = global::WindowsFormsApp8.Properties.Resources._in;
+            this.toolbtnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolbtnPrint.Name = "toolbtnPrint";
+            this.toolbtnPrint.Size = new System.Drawing.Size(23, 22);
+            this.toolbtnPrint.Text = "toolStripButton2";
+            this.toolbtnPrint.Click += new System.EventHandler(this.toolbtnPrint_Click);
             // 
             // Ve
             // 
@@ -152,10 +151,10 @@
             this.Text = "Ve";
             this.Load += new System.EventHandler(this.Ve_Load_1);
             this.pnlVe.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

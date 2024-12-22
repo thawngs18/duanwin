@@ -1435,7 +1435,7 @@
             this.pnlTheLoai.Controls.Add(this.btnSuaTL);
             this.pnlTheLoai.Controls.Add(this.btnXoaTL);
             this.pnlTheLoai.Controls.Add(this.btnThemTL);
-            this.pnlTheLoai.Location = new System.Drawing.Point(1061, 114);
+            this.pnlTheLoai.Location = new System.Drawing.Point(119, 119);
             this.pnlTheLoai.Name = "pnlTheLoai";
             this.pnlTheLoai.Size = new System.Drawing.Size(904, 396);
             this.pnlTheLoai.TabIndex = 18;

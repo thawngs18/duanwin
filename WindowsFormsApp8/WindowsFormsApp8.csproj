@@ -220,7 +220,12 @@
     <None Include="Resources\customer.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\savefile.png" />
+    <None Include="Resources\QR.png" />
+    <None Include="Resources\underdog.jpg" />
+    <None Include="Resources\logo1.png" />
     <None Include="Resources\imagesave.png" />
+    <None Include="Resources\in.png" />
     <Content Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup />

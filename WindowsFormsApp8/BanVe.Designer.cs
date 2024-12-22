@@ -410,7 +410,7 @@
             // 
             // lblHienTTin
             // 
-            this.lblHienTTin.BackColor = System.Drawing.Color.NavajoWhite;
+            this.lblHienTTin.BackColor = System.Drawing.Color.Bisque;
             this.lblHienTTin.Location = new System.Drawing.Point(21, 6);
             this.lblHienTTin.Name = "lblHienTTin";
             this.lblHienTTin.Size = new System.Drawing.Size(728, 76);
@@ -418,7 +418,7 @@
             // 
             // lblidlc
             // 
-            this.lblidlc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lblidlc.BackColor = System.Drawing.Color.Bisque;
             this.lblidlc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblidlc.Location = new System.Drawing.Point(34, 28);
             this.lblidlc.Name = "lblidlc";
@@ -428,7 +428,7 @@
             // 
             // lblTenMh
             // 
-            this.lblTenMh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lblTenMh.BackColor = System.Drawing.Color.Bisque;
             this.lblTenMh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTenMh.Location = new System.Drawing.Point(34, 52);
             this.lblTenMh.Name = "lblTenMh";
@@ -438,7 +438,7 @@
             // 
             // lbltenphim
             // 
-            this.lbltenphim.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lbltenphim.BackColor = System.Drawing.Color.Bisque;
             this.lbltenphim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltenphim.Location = new System.Drawing.Point(119, 28);
             this.lbltenphim.Name = "lbltenphim";
@@ -448,7 +448,7 @@
             // 
             // lbltgchieu
             // 
-            this.lbltgchieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lbltgchieu.BackColor = System.Drawing.Color.Bisque;
             this.lbltgchieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltgchieu.Location = new System.Drawing.Point(119, 52);
             this.lbltgchieu.Name = "lbltgchieu";
@@ -468,10 +468,13 @@
             // 
             // lbltenphong
             // 
-            this.lbltenphong.Location = new System.Drawing.Point(294, 28);
+            this.lbltenphong.BackColor = System.Drawing.Color.Bisque;
+            this.lbltenphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltenphong.Location = new System.Drawing.Point(316, 29);
             this.lbltenphong.Name = "lbltenphong";
-            this.lbltenphong.Size = new System.Drawing.Size(100, 23);
+            this.lbltenphong.Size = new System.Drawing.Size(139, 40);
             this.lbltenphong.TabIndex = 22;
+            this.lbltenphong.Text = "Phong 1";
             // 
             // BanVe
             // 

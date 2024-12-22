@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaoCao));
             this.txtDate = new System.Windows.Forms.TextBox();
             this.panelContent = new System.Windows.Forms.Panel();
             this.txtNgayKT = new System.Windows.Forms.TextBox();
@@ -255,7 +254,7 @@
             // toolStripButton2
             // 
             this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.Image = global::WindowsFormsApp8.Properties.Resources._in;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
@@ -278,12 +277,11 @@
             this.pDFToolStripMenuItem,
             this.wordToolStripMenuItem,
             this.excelToolStripMenuItem});
-            this.toolSave.Image = ((System.Drawing.Image)(resources.GetObject("toolSave.Image")));
+            this.toolSave.Image = global::WindowsFormsApp8.Properties.Resources.savefile;
             this.toolSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolSave.Name = "toolSave";
             this.toolSave.Size = new System.Drawing.Size(32, 22);
             this.toolSave.Text = "toolStripSplitButton1";
- 
             // 
             // pDFToolStripMenuItem
             // 
