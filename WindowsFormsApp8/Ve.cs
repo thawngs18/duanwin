@@ -11,6 +11,7 @@ using System.Drawing.Printing;
 using QRCoder;
 using System.Drawing.Imaging;
 
+
 namespace WindowsFormsApp8
 {
     public partial class Ve : Form
@@ -20,6 +21,8 @@ namespace WindowsFormsApp8
         private string tenPhim;
         private string date;
         private string tenghe;
+      
+
         public Ve()
         {
             InitializeComponent();

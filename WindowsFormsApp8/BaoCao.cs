@@ -1,6 +1,4 @@
-﻿using iTextSharp.text.pdf;
-using iTextSharp.text;
-using System;
+﻿
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,9 +7,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
+
 using System.Windows.Documents;
 using System.Windows.Forms;
+using System;
+using System.Drawing.Printing;
 
 
 
@@ -19,10 +19,14 @@ namespace WindowsFormsApp8
 {
     public partial class BaoCao : Form
     {
+        private PrintDocument printDoc;
         public BaoCao()
         {
             InitializeComponent();
+            printDoc = new PrintDocument();
+            printDoc.PrintPage += new PrintPageEventHandler(printDoc_PrintPage);
            
+
         }
       
         // Phương thức hiển thị báo cáo
@@ -91,6 +95,22 @@ namespace WindowsFormsApp8
             }
         }
 
+        private void printDoc_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            // Tạo một Bitmap với kích thước của panel
+            Bitmap bmp = new Bitmap(panelContent.Width, panelContent.Height);
+
+            // Vẽ nội dung của panel lên Bitmap
+            panelContent.DrawToBitmap(bmp, new Rectangle(0, 0, panelContent.Width, panelContent.Height));
+
+            // Vẽ Bitmap lên trang in
+            e.Graphics.DrawImage(bmp, e.MarginBounds);
+        }
+
+
+        // Khi tất c
+
+
 
 
         private void pDFToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,6 +123,21 @@ namespace WindowsFormsApp8
             SaveFormAsImage();
         }
 
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.PrintDialog printDialog = new System.Windows.Forms.PrintDialog();
+            printDialog.Document = printDoc;
 
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                // In trang
+                printDoc.Print();
+            }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
