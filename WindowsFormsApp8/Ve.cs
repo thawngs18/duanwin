@@ -58,6 +58,8 @@ namespace WindowsFormsApp8
             qr.MdiParent = this;
             qr.Controls.Add(pnlQR);
             qr.Show();
+            toolStripButton1.Enabled = false;
+            toolbtnPrint.Enabled = true;
 
         }
 
@@ -73,6 +75,10 @@ namespace WindowsFormsApp8
 
         private void toolbtnPrint_Click(object sender, EventArgs e)
         {
+            toolStripButton1.Enabled = true;
+            toolbtnPrint.Enabled = false;
+            pnlQR.Controls.Clear();
+
             // Nội dung vé xem phim cần in
             string noiDungVe = string.Format(
     "============= Ve Xem Phim =============\n" +
@@ -144,6 +150,7 @@ namespace WindowsFormsApp8
                             );
                         }
                     }
+                    
                 }
                 catch (Exception ex)
                 {
