@@ -56,10 +56,9 @@ namespace WindowsFormsApp8
             pnlQR.Visible = true;
             QR qr = new QR(lblPhong.Text, lblTenPhim.Text, lblDate.Text, lblTenghe.Text);
             qr.MdiParent = this;
-            qr.Controls.Add(pnlQR);
+            pnlQR.Controls.Add(qr);
             qr.Show();
             toolStripButton1.Enabled = false;
-            toolbtnPrint.Enabled = true;
 
         }
 
@@ -75,9 +74,7 @@ namespace WindowsFormsApp8
 
         private void toolbtnPrint_Click(object sender, EventArgs e)
         {
-            toolStripButton1.Enabled = true;
-            toolbtnPrint.Enabled = false;
-            pnlQR.Controls.Clear();
+          
 
             // Nội dung vé xem phim cần in
             string noiDungVe = string.Format(
@@ -180,6 +177,14 @@ namespace WindowsFormsApp8
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(content, QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
             return qrCode.GetGraphic(2); // Tạo mã QR với kích thước 2x
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            pnlQR.Controls.Clear();
+            pnlQR.Visible = false;
+            pnlVe.Visible = true;
+            toolStripButton1.Enabled = true;
         }
     }
 }

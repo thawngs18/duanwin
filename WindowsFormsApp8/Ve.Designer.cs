@@ -36,8 +36,10 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.pnlQR = new System.Windows.Forms.Panel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolbtnPrint = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.pnlVe.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -104,7 +106,9 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
-            this.toolbtnPrint});
+            this.toolbtnPrint,
+            this.toolStripSeparator1,
+            this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(367, 25);
@@ -117,6 +121,11 @@
             this.pnlQR.Name = "pnlQR";
             this.pnlQR.Size = new System.Drawing.Size(364, 364);
             this.pnlQR.TabIndex = 4;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripButton1
             // 
@@ -137,6 +146,16 @@
             this.toolbtnPrint.Size = new System.Drawing.Size(23, 22);
             this.toolbtnPrint.Text = "toolStripButton2";
             this.toolbtnPrint.Click += new System.EventHandler(this.toolbtnPrint_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::WindowsFormsApp8.Properties.Resources.coupon_code;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // Ve
             // 
@@ -172,5 +191,7 @@
         private System.Windows.Forms.ToolStripButton toolbtnPrint;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel pnlQR;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }

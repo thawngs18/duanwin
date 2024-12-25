@@ -34,18 +34,18 @@ namespace WindowsFormsApp8
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            string makh = txtTKTV.Text.Trim();
+            string tenkh = txtTKTV.Text.Trim();
             
 
             // Kiểm tra dữ liệu nhập vào
-            if (string.IsNullOrEmpty(makh))
+            if (string.IsNullOrEmpty(tenkh))
             {
-                MessageBox.Show("Vui lòng nhập ma khach hang", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập ten khach hang", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             // Chuỗi truy vấn SQL để xác thực người dùng (không cần IsActive)
-            string query = @"SELECT HoTen FROM KhachHang WHERE id = @makh" ;
+            string query = @"SELECT HoTen FROM KhachHang WHERE HoTen = @tenkh";
 
             // Kết nối với cơ sở dữ liệu
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -57,7 +57,7 @@ namespace WindowsFormsApp8
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         // Thêm tham số vào câu lệnh SQL
-                        command.Parameters.AddWithValue("@makh", makh);
+                        command.Parameters.AddWithValue("@tenkh", tenkh);
                         
 
                         // Thực thi câu lệnh SQL và lấy kết quả
@@ -78,7 +78,7 @@ namespace WindowsFormsApp8
                         }
                         else
                         {
-                            MessageBox.Show("Khong tim thay ma khach hang thanh vien", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Khong tim thay khach hang thanh vien", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }

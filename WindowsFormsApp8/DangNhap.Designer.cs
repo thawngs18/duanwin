@@ -44,7 +44,6 @@
             // 
             this.txt_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_pass.Location = new System.Drawing.Point(64, 149);
-            this.txt_pass.Multiline = true;
             this.txt_pass.Name = "txt_pass";
             this.txt_pass.Size = new System.Drawing.Size(270, 38);
             this.txt_pass.TabIndex = 1;
@@ -54,9 +53,8 @@
             this.txt_user.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_user.Location = new System.Drawing.Point(64, 69);
-            this.txt_user.Multiline = true;
             this.txt_user.Name = "txt_user";
-            this.txt_user.Size = new System.Drawing.Size(270, 37);
+            this.txt_user.Size = new System.Drawing.Size(270, 31);
             this.txt_user.TabIndex = 0;
             // 
             // label3
