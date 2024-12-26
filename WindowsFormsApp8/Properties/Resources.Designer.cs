@@ -103,6 +103,26 @@ namespace WindowsFormsApp8.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hidepass__1_ {
+            get {
+                object obj = ResourceManager.GetObject("hidepass (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hidepass__2_ {
+            get {
+                object obj = ResourceManager.GetObject("hidepass (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imagesave {
             get {
                 object obj = ResourceManager.GetObject("imagesave", resourceCulture);
@@ -146,6 +166,16 @@ namespace WindowsFormsApp8.Properties {
         internal static System.Drawing.Bitmap savefile {
             get {
                 object obj = ResourceManager.GetObject("savefile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap showpass__2_ {
+            get {
+                object obj = ResourceManager.GetObject("showpass (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

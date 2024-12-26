@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iTextSharp.text.pdf.qrcode;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp8.database;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
@@ -19,15 +21,14 @@ namespace WindowsFormsApp8
         {
             InitializeComponent();
         }
-        string connectionString = "Server=.\\SQLEXPRESS;Database=rapphim;Trusted_Connection=True;";
         public event EventHandler CancelClicked;
         public event EventHandler OKClicked;
 
-     
+
         private void btnThoat_Click(object sender, EventArgs e)
         {
             bool rs = false;
-            BanVe frm = new BanVe (rs);
+            BanVe frm = new BanVe(rs);
             CancelClicked?.Invoke(this, EventArgs.Empty);
             this.Close();
         }
@@ -35,51 +36,31 @@ namespace WindowsFormsApp8
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             string tenkh = txtTKTV.Text.Trim();
-            
 
             // Kiểm tra dữ liệu nhập vào
             if (string.IsNullOrEmpty(tenkh))
             {
-                MessageBox.Show("Vui lòng nhập ten khach hang", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập tên khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Chuỗi truy vấn SQL để xác thực người dùng (không cần IsActive)
-            string query = @"SELECT HoTen FROM KhachHang WHERE HoTen = @tenkh";
-
-            // Kết nối với cơ sở dữ liệu
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (var context = new Model1())
             {
                 try
                 {
-                    connection.Open();
+                    // Tìm khách hàng có tên khớp
+                    var khachHang = context.KhachHangs.FirstOrDefault(kh => kh.HoTen == tenkh);
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    if (khachHang != null)
                     {
-                        // Thêm tham số vào câu lệnh SQL
-                        command.Parameters.AddWithValue("@tenkh", tenkh);
-                        
+                        MessageBox.Show($"Xin chào KHTV: {khachHang.HoTen}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Thực thi câu lệnh SQL và lấy kết quả
-                        SqlDataReader reader = command.ExecuteReader();
-
-                        if (reader.HasRows)
-                        {
-                            // Nếu có kết quả, người dùng hợp lệ
-                            reader.Read();
-                            string hoTen = reader["HoTen"].ToString();
-                        
-                            MessageBox.Show($"Xin chào KHTV : {hoTen}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            // Mở form tiếp theo hoặc thực hiện hành động khác
-                            // Ví dụ: mở form BanVe hoặc hành động khác
-                            this.Close();
-                            // Ẩn form đăng nhập
-                        }
-                        else
-                        {
-                            MessageBox.Show("Khong tim thay khach hang thanh vien", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        // Mở form tiếp theo hoặc thực hiện hành động khác
+                        this.Close(); // Ẩn form đăng nhập
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy khách hàng thành viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)
@@ -88,7 +69,5 @@ namespace WindowsFormsApp8
                 }
             }
         }
-
-
     }
 }

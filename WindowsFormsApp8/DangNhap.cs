@@ -50,6 +50,25 @@ namespace WindowsFormsApp8
             }
         }
 
+        private void btn_show_Click(object sender, EventArgs e)
+        {
+            btn_show.Visible = false;
+            btn_hide.Visible = true;
+            txt_pass.PasswordChar = '\0';
+        }
 
+        private void btn_hide_Click(object sender, EventArgs e)
+        {
+            btn_hide.Visible = false;
+            btn_show.Visible = true;
+            txt_pass.PasswordChar = '*';
+        }
+
+        private void DangNhap_Load(object sender, EventArgs e)
+        {
+            btn_show.Visible = true;
+            btn_hide.Visible = false;
+            txt_pass.PasswordChar = '*';
+        }
     }
 }

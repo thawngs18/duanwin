@@ -40,9 +40,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(26, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 20);
+            this.label1.Size = new System.Drawing.Size(90, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Ten KHTT";
+            this.label1.Text = "Ten KHTV";
             // 
             // btnDangNhap
             // 
@@ -58,7 +58,7 @@
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(155, 93);
+            this.btnThoat.Location = new System.Drawing.Point(244, 93);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(94, 25);
             this.btnThoat.TabIndex = 3;
@@ -71,14 +71,14 @@
             this.txtTKTV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTKTV.Location = new System.Drawing.Point(29, 58);
             this.txtTKTV.Name = "txtTKTV";
-            this.txtTKTV.Size = new System.Drawing.Size(220, 26);
+            this.txtTKTV.Size = new System.Drawing.Size(309, 26);
             this.txtTKTV.TabIndex = 4;
             // 
             // DangNhapTV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(286, 182);
+            this.ClientSize = new System.Drawing.Size(379, 153);
             this.Controls.Add(this.txtTKTV);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnDangNhap);

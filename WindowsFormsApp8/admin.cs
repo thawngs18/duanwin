@@ -1333,7 +1333,21 @@ namespace WindowsFormsApp8
             {
                 using (var context = new Model1())
                 {
-                    var phimList = context.Phims.ToList();
+                    var phimList = context.Phims
+                                          .Select(p => new
+                                          {
+                                              p.id,
+                                              p.TenPhim,
+                                              p.MoTa,
+                                              p.ThoiLuong,
+                                              p.NgayKhoiChieu,
+                                              p.NgayKetThuc,
+                                              p.DaoDien,
+                                              p.NamSX,
+                                              
+                                              // Thêm các trường khác nếu cần
+                                          })
+                                          .ToList();
                     dgvP.DataSource = phimList;
                 }
             }

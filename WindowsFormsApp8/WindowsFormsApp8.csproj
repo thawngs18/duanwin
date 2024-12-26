@@ -229,6 +229,7 @@
     <None Include="Resources\customer.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\showpass %282%29.png" />
     <None Include="Resources\return.png" />
     <None Include="Resources\savefile.png" />
     <None Include="Resources\QR.png" />
@@ -237,6 +238,8 @@
     <None Include="Resources\imagesave.png" />
     <None Include="Resources\in.png" />
     <None Include="Resources\coupon-code.png" />
+    <None Include="Resources\hidepass %281%29.png" />
+    <None Include="Resources\hidepass %282%29.png" />
     <Content Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup />
