@@ -51,7 +51,6 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.chkTV = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -302,7 +301,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.chkTV);
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
@@ -310,16 +308,6 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thanh Vien";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(32, 95);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 26);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "DANG KY THANH VIEN";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // chkTV
             // 
@@ -579,7 +567,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lbltenphong;
-        private System.Windows.Forms.Button button1;
     }
 }
 
