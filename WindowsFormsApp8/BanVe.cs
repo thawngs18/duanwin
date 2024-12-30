@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -560,8 +562,7 @@ namespace WindowsFormsApp8
                     radTreEm.Checked = false;
                     chkTV.Checked = false;
 
-
-
+                   
                 }
 
             }

@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using System.Drawing.Printing;
 using QRCoder;
 using System.Drawing.Imaging;
+using System.Net.Mail;
+using System.Net;
+using System.IO;
 
 
 namespace WindowsFormsApp8
@@ -54,6 +57,7 @@ namespace WindowsFormsApp8
         {
             pnlVe.Visible = false;
             pnlQR.Visible = true;
+            pnl_Email.Visible = false;
             QR qr = new QR(lblPhong.Text, lblTenPhim.Text, lblDate.Text, lblTenghe.Text);
             qr.MdiParent = this;
             pnlQR.Controls.Add(qr);
@@ -66,6 +70,7 @@ namespace WindowsFormsApp8
         {
             ResetLabelsInPanel();
             pnlQR.Visible=false;
+            pnl_Email.Visible = false;
             lblPhong.Text = tenphong;
             lblTenPhim.Text = tenPhim;
             lblDate.Text = date;
@@ -183,8 +188,108 @@ namespace WindowsFormsApp8
         {
             pnlQR.Controls.Clear();
             pnlQR.Visible = false;
+            pnl_Email.Visible = false;
             pnlVe.Visible = true;
             toolStripButton1.Enabled = true;
+        }
+        private string GenerateQRCodeBase64(string content)
+        {
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(content, QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            using (Bitmap qrImage = qrCode.GetGraphic(2))
+            using (MemoryStream ms = new MemoryStream())
+            {
+                qrImage.Save(ms, ImageFormat.Png);
+                return Convert.ToBase64String(ms.ToArray());
+            }
+        }
+
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            pnlQR.Controls.Clear();
+            pnlQR.Visible = false;
+            pnlVe.Visible = false;
+            toolStripButton1.Enabled = true;
+            pnl_Email.Visible = true;
+        }
+
+        private void btn_XN_Click(object sender, EventArgs e)
+        {
+            string fromEmail = "theunderdog0108@gmail.com"; // Email của bạn
+            string appPassword = "leob pmdu aoyt oztl";  // Mật khẩu ứng dụng
+            string toEmail = txt_mailnhan.Text; // Email người nhận
+            string subject = "Đặt vé xem phim thành công!";
+
+            // Nội dung vé
+            string emailBody = string.Format(
+            "Đây là thông tin vé xem phim của bạn!\n" +
+            "==== Vé Xem Phim ====\n" +
+            "Phim: {0}\n" +
+            "Thời Gian Chiếu: {1}\n" +
+            "Phòng Chiếu: {2}\n" +
+            "Ghế: {3}\n" +
+            "=====================\n",
+                tenPhim, date, tenphong, tenghe);
+
+            // Nội dung cho QR code (không có thông báo)
+            string qrContent = string.Format(
+                "==== Vé Xem Phim ====\n" +
+                "Phim: {0}\n" +
+                "Thời Gian Chiếu: {1}\n" +
+                "Phòng Chiếu: {2}\n" +
+                "Ghế: {3}\n" +
+                "=====================\n",
+                tenPhim, date, tenphong, tenghe);
+
+            // Tạo mã QR
+            string qrBase64 = GenerateQRCodeBase64(qrContent);
+
+            // Tạo nội dung HTML cho email
+            string bodyHtml = string.Format(
+                "<html>" +
+                "<body>" +
+                "<p>{0}</p>" +
+                "<p>Mã QR:</p>" +
+                "<img src='data:image/png;base64,{1}' alt='QR Code'>" +
+                "</body>" +
+                "</html>",
+                emailBody.Replace("\n", "<br>"), qrBase64);
+
+            // Cấu hình SMTP
+            var smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential(fromEmail, appPassword),
+                EnableSsl = true,
+            };
+
+            // Tạo email
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress(fromEmail),
+                Subject = subject,
+                Body = bodyHtml,
+                IsBodyHtml = true, // Email dạng HTML
+            };
+            mailMessage.To.Add(toEmail);
+
+            // Gửi email
+            try
+            {
+                smtpClient.Send(mailMessage);
+                MessageBox.Show("Email đã được gửi thành công!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi gửi email: " + ex.Message);
+            }
+        }
+
+        private void btn_huy_Click(object sender, EventArgs e)
+        {
+            Ve_Load_1(sender, e);
         }
     }
 }

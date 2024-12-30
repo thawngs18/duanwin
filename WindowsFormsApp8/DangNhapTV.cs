@@ -36,11 +36,12 @@ namespace WindowsFormsApp8
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             string tenkh = txtTKTV.Text.Trim();
+            string sdt = txt_sdt.Text.Trim();
 
             // Kiểm tra dữ liệu nhập vào
-            if (string.IsNullOrEmpty(tenkh))
+            if (string.IsNullOrEmpty(tenkh) || string.IsNullOrEmpty(sdt))
             {
-                MessageBox.Show("Vui lòng nhập tên khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập day du thong tin khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -49,7 +50,7 @@ namespace WindowsFormsApp8
                 try
                 {
                     // Tìm khách hàng có tên khớp
-                    var khachHang = context.KhachHangs.FirstOrDefault(kh => kh.HoTen == tenkh);
+                    var khachHang = context.KhachHangs.FirstOrDefault(kh => kh.HoTen == tenkh && kh.SDT == sdt);
 
                     if (khachHang != null)
                     {
