@@ -134,7 +134,7 @@
             this.Controls.Add(this.label1);
             this.Name = "chonCN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form3";
+            this.Text = "Chuc Nang";
             this.Load += new System.EventHandler(this.chonCN_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

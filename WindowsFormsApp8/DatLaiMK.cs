@@ -42,6 +42,11 @@ namespace WindowsFormsApp8
         {
             txt_user.Text = tentk;
             txt_maxn.Text = GenerateRandomString(6);
+            button7.Visible = false;
+            button6.Visible = false;
+            button10.Visible = false;
+
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -95,6 +100,48 @@ namespace WindowsFormsApp8
 
                 
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            button3.Visible = false;
+            button7.Visible = true;
+            txt_passmoi.PasswordChar = '\0';
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            button7.Visible = false;
+            button3.Visible = true;
+            txt_passmoi.PasswordChar = '*';
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            button4.Visible = false;
+            button6.Visible = true;
+            txt_confirmpass.PasswordChar = '\0';
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            button6.Visible = false;
+            button4.Visible = true;
+            txt_confirmpass.PasswordChar = '*';
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            button9.Visible = false;
+            button10.Visible = true;
+            txt_passcu.PasswordChar = '\0';
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            button10.Visible = false;
+            button9.Visible = true;
+            txt_passcu.PasswordChar = '*';
         }
     }
 }
