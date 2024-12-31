@@ -2439,7 +2439,7 @@ namespace WindowsFormsApp8
     
       
                 BaoCao bc = new BaoCao();
-                bc.HienThiBaoCao(danhSachBaoCao, tongDoanhThu, tuNgay, denNgay);
+           //     bc.HienThiBaoCao(danhSachBaoCao, tongDoanhThu, tuNgay, denNgay);
                 bc.Show();
 
             }
