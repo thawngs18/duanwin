@@ -285,6 +285,7 @@ namespace WindowsFormsApp8
             {
                 MessageBox.Show("Lỗi khi gửi email: " + ex.Message);
             }
+            pnl_Email.Visible = false;
         }
 
         private void btn_huy_Click(object sender, EventArgs e)
